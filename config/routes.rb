@@ -15,4 +15,5 @@ namespace :admin do
   resources :products, only: [:create, :destroy, :update, :edit, :new]
 end
 root :to => 'products#index'
+get 'tops/top', as: 'top'
 end
