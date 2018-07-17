@@ -1,0 +1,13 @@
+<h1>ディスク新規登録</h1>
+
+<%= form_for([@product, @disc], url: admin_product_discs_path) do |f| %>
+
+	<p><%= f.label :disc_name, "ディスクの名前" %></p>
+	<%= f.text_field :disc_name %>
+
+	<p><%= f.label :disc_number, "何枚目のディスクか" %></p>
+	<%= f.text_field :disc_number %>
+
+	<%= f.submit "登録" %>
+
+<% end %>
