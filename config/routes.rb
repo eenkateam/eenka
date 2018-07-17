@@ -12,7 +12,7 @@ devise_for :users, controllers: {
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 resources :products, only: [:show, :index]
 namespace :admin do
-  resources :products, only: [:create, :destroy, :update, :edit, :new]
+  resources :products
 end
 root :to => 'products#index'
 get 'tops/top', as: 'top'

@@ -1,1 +1,19 @@
-商品投稿ページ
+<h1>商品新規登録</h1>
+
+<%= form_for(@product, url: admin_products_path) do |f| %>
+
+	<p><%= f.label :image, "ジャケット画像" %></p>
+	<%= f.attachment_field :image %>
+
+	<p><%= f.label :product_name, "商品名" %></p>
+	<%= f.text_field :product_name %>
+
+	<p><%= f.label :price, "価格" %></p>
+	<%= f.text_field :price %>
+
+	<p><%= f.label :stock, "在庫" %></p>
+	<%= f.text_field :stock %>
+
+	<%= f.submit "登録" %>
+
+<% end %>
