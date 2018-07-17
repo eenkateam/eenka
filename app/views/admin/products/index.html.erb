@@ -1,1 +1,14 @@
 <h1>管理者側からの商品一覧です</h1>
+
+<% @products.each do |product| %>
+	<p>商品名</p>
+	<%= product.product_name %>
+
+	<p>価格</p>
+	<%= product.price %>
+
+	<p>在庫</p>
+	<%= product.stock %>
+
+	<%= link_to "ディスク登録", new_admin_product_disc_path(product) %>
+<% end %>
