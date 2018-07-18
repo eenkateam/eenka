@@ -14,16 +14,18 @@
       <nav>
         <ul class="clearfix">
           <% if user_signed_in? %>
+            <P>Userとしてログインしています</P>
             <li class = "">マイページへ</li>
             <li class = ""><%= link_to ' 商品一覧へ' ,products_path ,class: 'glyphicon glyphicon-book' %></li>
             <li class = ""><%= link_to ' ログアウトする', destroy_user_session_path, method: :delete ,class:'glyphicon glyphicon-log-out'%></li>
-            <li class = "">トップページへ</li>
+            <li class = ""><%= link_to ' トップページへ' ,top_path,class: 'glyphicon glyphicon-home' %></li>
             <li class = "">カート</li>
             <li class = "">購入履歴</li>
           <% elsif admin_signed_in? %>
             <P>管理者としてログインしています</P>
             <li class = ""><%= link_to ' ログアウトする', destroy_admin_session_path, method: :delete ,class:'glyphicon glyphicon-log-out'%></li>
           <% else %>
+            <p>ログインしていません</p>
             <li class = ""><%= link_to ' トップページへ' ,top_path,class: 'glyphicon glyphicon-home' %></li>
             <li class = ""><%= link_to ' 新規会員登録' ,new_user_registration_path,class: 'glyphicon glyphicon-edit' %></li>
             <li class = ""><%= link_to ' ログイン', new_user_session_path ,class: 'glyphicon glyphicon-log-in'%></li>
