@@ -5,6 +5,7 @@ class Admin::DiscsController < ApplicationController
 
   	def create
 		disc = Disc.new(disc_params)
+		disc.product_id = params[:product_id]
 		disc.save
 		redirect_to admin_products_path
 	end
@@ -12,6 +13,6 @@ class Admin::DiscsController < ApplicationController
 	private
 
 	def disc_params
-		params.require(:disc).permit(:disc_name, :disc_number, :product_id)
+		params.require(:disc).permit(:disc_name, :disc_number,)
 	end
 end
