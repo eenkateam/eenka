@@ -6,6 +6,10 @@ class CartsController < ApplicationController
 	end
 
 	def show
-		@cart_products = current_user.cart.cart_products
+		if Cart.find(params[:id]).user_id == current_user.id
+			@cart_products = current_user.cart.cart_products
+		else
+			redirect_to products_path
+		end
 	end
 end

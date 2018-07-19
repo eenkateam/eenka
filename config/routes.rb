@@ -25,4 +25,5 @@ end
 root :to => 'products#index'
 get 'tops/top', as: 'top'
 post 'products/cart' => 'products#cart', as: 'cart_product'
+delete 'products/cart' => 'products#cart_destroy', as: 'destroy_cart_product'
 end

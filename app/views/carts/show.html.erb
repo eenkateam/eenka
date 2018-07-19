@@ -5,6 +5,7 @@
 		<tr>
 	  		<th><%= cart_product.product.product_name %></th>
 	  		<th><%= cart_product.product.price %></th>
+	  		<th><%= link_to 'カートから削除する', destroy_cart_product_path(product_id: cart_product.product_id), method: :delete %></th>
 		</tr>
 	<% end %>
 </table>
