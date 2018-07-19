@@ -12,9 +12,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    cart = Cart.new
-    cart.user_id = current_user.id
-    cart.save
+    if user_signed_in?
+      cart = Cart.new
+      cart.user_id = current_user.id
+      cart.save
+    end
   end
 
   # GET /resource/edit

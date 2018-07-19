@@ -15,7 +15,7 @@ devise_for :users, controllers: {
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 resources :products, only: [:show, :index]
 resources :carts, only: [:show]
-
+resources :orders, only: [:show]
 
 namespace :admin do
   resources :products do
@@ -26,4 +26,5 @@ root :to => 'products#index'
 get 'tops/top', as: 'top'
 post 'products/cart' => 'products#cart', as: 'cart_product'
 delete 'products/cart' => 'products#cart_destroy', as: 'destroy_cart_product'
+post 'products/purcahse' => 'products#purchase', as: 'purchase'
 end

@@ -1,0 +1,10 @@
+<h1>ここは商品購入後のページです</h1>
+<table>
+	<tr><th>商品名</th><th>値段</th></tr>
+	<% @order_products.each do |order_product| %>
+		<tr>
+	  		<th><%= order_product.product.product_name %></th>
+	  		<th><%= order_product.price %></th>
+		</tr>
+	<% end %>
+</table>
