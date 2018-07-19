@@ -15,5 +15,11 @@ class ProductsController < ApplicationController
 		cart_product.save
 		redirect_to cart_path(cart_product.cart_id)
 	end
+
+	def cart_destroy
+		cart_product = CartProduct.find_by(product_id: params[:product_id])
+		cart_product.destroy
+		redirect_to cart_path(cart_product.cart_id)
+	end
 end
 
