@@ -1,0 +1,14 @@
+<h1>購入履歴のページです</h1>
+<table>
+	<% @orders.each do |order| %>
+		<% order.order_products.each do |order_product| %>
+			<tr>
+				<th><%= order_product.product.product_name %></th>
+				<th><%= order_product.price %></th>
+			</tr>
+		<% end %>
+		<tr>
+			<th>合計金額は</th>
+		</tr>
+	<% end %>
+</table>

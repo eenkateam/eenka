@@ -20,7 +20,7 @@
             <li class = ""><%= link_to ' ログアウトする', destroy_user_session_path, method: :delete %></li>
             <li class = ""><%= link_to ' トップページへ' ,top_path %></li>
             <li class = ""><%= link_to 'カートへ' ,cart_path(current_user.cart) %></li>
-            <li class = "">購入履歴</li>
+            <li class = ""><%= link_to '購入履歴へ' ,user_path(current_user) %></li>
           <% elsif admin_signed_in? %>
             <P>管理者としてログインしています</P>
             <li class = ""><%= link_to ' ログアウトする', destroy_admin_session_path, method: :delete %></li>
