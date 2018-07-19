@@ -15,6 +15,7 @@ devise_for :users, controllers: {
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 resources :products, only: [:show, :index]
 resources :carts, only: [:show]
+resources :users
 
 
 namespace :admin do
