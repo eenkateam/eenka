@@ -7,11 +7,6 @@
 	  		<th><%= link_to product.product_name, product_path(product), class: "show_#{product.id}" %></th>
 	  		<th><%= product.price %></th>
 	  		<th><%= product.stock %></th>
-	  		<th>
-	  			<% if  user_signed_in? %>
-	  			<%= link_to ' カートに入れる', cart_product_path(product_id: product.id), method: :post ,class:'glyphicon glyphicon-log-out'%>
-	  			<% end %>
-	  		</th>
 		</tr>
 	<% end %>
 </table>

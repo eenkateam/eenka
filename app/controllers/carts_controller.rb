@@ -8,6 +8,10 @@ class CartsController < ApplicationController
 	def show
 		if Cart.find(params[:id]).user_id == current_user.id
 			@cart_products = current_user.cart.cart_products
+			@price = 0
+			@cart_products.each do |cart_product|
+				@price = @price + cart_product.product.price * cart_product.count
+			end
 		else
 			redirect_to products_path
 		end
