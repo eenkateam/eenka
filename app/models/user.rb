@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :last_name, length: { in: 2..20}, presence: true, uniqueness: true
   validates :first_kana, length: { in: 2..20}, presence: true, uniqueness: true
   validates :last_kana, length: { in: 2..20}, presence: true, uniqueness: true
-  validates :postal_code, length: { in: 7}, presence: true
+  validates :postal_code, length: { is: 7}, presence: true
   validates :adress, length: { in: 2..50}, presence: true
   validates :phone_number, length: { in: 10..11}, presence: true, uniqueness: true
 
