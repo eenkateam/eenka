@@ -1,14 +1,16 @@
 <h1>ここはカートのページです</h1>
 <table>
-	<tr><th>商品名</th><th>値段</th></tr>
+	<tr><th>商品名　</th><th>値段　</th><th>枚数　</th></tr>
 	<% @cart_products.each do |cart_product| %>
 		<tr>
 	  		<th><%= cart_product.product.product_name %></th>
 	  		<th><%= cart_product.product.price %></th>
+	  		<th><%= cart_product.count %>枚</th>
 	  		<th><%= link_to 'カートから削除する', destroy_cart_product_path(product_id: cart_product.id,cart_id: params[:id]), method: :delete %></th>
 		</tr>
 	<% end %>
 </table>
+<p>合計金額は<%= @price %>円です</p>
 <% if @cart_products.any? %>
 <%= link_to '購入する',purchase_path(cart_id: params[:id]), method: :post %>
 <% end %>

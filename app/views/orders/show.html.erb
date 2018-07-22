@@ -1,10 +1,12 @@
 <h1>ここは商品購入後のページです</h1>
 <table>
-	<tr><th>商品名</th><th>値段</th></tr>
+	<tr><th>商品名</th><th>値段</th><th>枚数</th></tr>
 	<% @order_products.each do |order_product| %>
 		<tr>
 	  		<th><%= order_product.product.product_name %></th>
-	  		<th><%= order_product.price %></th>
+	  		<th><%= order_product.price %>円</th>
+	  		<th><%= order_product.count %>枚</th>
 		</tr>
 	<% end %>
+	  	<th>合計金額は<%= @price %>円です</th>
 </table>

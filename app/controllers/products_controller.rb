@@ -2,18 +2,23 @@ class ProductsController < ApplicationController
   before_action :authenticate_user! , only: [:cart]
 	def index
 		@products = Product.all
+		@cart_product = CartProduct.new
 	end
 	def show
 		@product = Product.find(params[:id])
+		@cart_product = CartProduct.new
 	end
 
 	def cart
-		cart_product=CartProduct.new
-		cart_product.cart_id = current_user.cart.id
-		cart_product.product_id = params[:product_id]
-		cart_product.count=1
-		cart_product.save
-		redirect_to cart_path(cart_product.cart_id)
+		cart_product=CartProduct.new(cart_product_params)
+		if cart_product.count != nil
+			cart_product.cart_id = current_user.cart.id
+			cart_product.product_id = params[:product_id]
+			cart_product.save
+			redirect_to cart_path(cart_product.cart_id)
+		else
+			redirect_to product_path(params[:product_id]),notice: '枚数を入力してください.'
+		end
 	end
 
 	def cart_destroy
@@ -41,5 +46,11 @@ class ProductsController < ApplicationController
 		cart_products.delete_all
 		redirect_to order_path(order)
 	end
+
+	private
+
+	def cart_product_params
+  	params.require(:cart_product).permit(:count)
+  end
 end
 

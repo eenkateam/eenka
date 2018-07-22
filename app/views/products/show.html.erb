@@ -1,5 +1,5 @@
 <h1>ここは商品の詳細ページです</h1>
-
+<p id="notice"><%= notice %></p>
 <table>
 	<tr><th>商品名:</th><th><%= @product.product_name %></th></tr>
 	<tr><th>値段:</th><th><%= @product.price %></th></tr>
@@ -12,4 +12,12 @@
 		</tr>
 		<% end %>
 </table>
-<p><%= link_to 'カートに入れる', cart_product_path(product_id: @product.id), method: :post %></p>
+
+<% if  user_signed_in? %>
+	<%= form_for(@cart_product, url: cart_product_path(product_id: @product.id)) do |f| %>
+		<%= f.label '枚数' %>
+		<%= f.number_field :count,min:1,max:10000,step:1 %> <br>
+		<%= f.submit 'カートに入れる' %>
+	<% end %>
+<% end %>
+
