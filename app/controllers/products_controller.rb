@@ -11,11 +11,18 @@ class ProductsController < ApplicationController
 
 	def cart
 		cart_product=CartProduct.new(cart_product_params)
+		cart_product.cart_id = current_user.cart.id
+		cart_product.product_id = params[:product_id]
 		if cart_product.count != nil
-			cart_product.cart_id = current_user.cart.id
-			cart_product.product_id = params[:product_id]
-			cart_product.save
-			redirect_to cart_path(cart_product.cart_id)
+			if current_user.cart.cart_products.find_by(product_id: cart_product.product_id)
+				cart_product_update = CartProduct.find_by(cart_id: current_user.cart.id, product_id: cart_product.product_id)
+				cart_product_update.count += cart_product.count
+				cart_product_update.save
+				redirect_to cart_path(cart_product.cart_id)
+			else
+				cart_product.save
+				redirect_to cart_path(cart_product.cart_id)
+			end
 		else
 			redirect_to product_path(params[:product_id]),notice: '枚数を入力してください.'
 		end
