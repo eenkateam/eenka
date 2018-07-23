@@ -12,5 +12,9 @@
 </table>
 <p>合計金額は<%= @price %>円です</p>
 <% if @cart_products.any? %>
-<%= link_to '購入する',purchase_path(cart_id: params[:id]), method: :post %>
+	<%= form_for(@order, url: purchase_path(cart_id: params[:id])) do |f| %>
+			<%= f.label '送り先' %>
+			<%= f.select :receiver_id, [["1","1"],["1", "1"],["1", "1"],["1","1"]] %>
+			<%= f.submit '購入する' %>
+	<% end %>
 <% end %>

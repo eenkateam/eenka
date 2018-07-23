@@ -37,9 +37,15 @@ class ProductsController < ApplicationController
 	def purchase
 		cart = Cart.find(params[:cart_id])
 		user = current_user
-		order = Order.new
+		order = Order.new(order_params)
 		order.user_id=user.id
 		order.receiver_id =1
+		order.first_name = user.first_name
+		order.last_name = user.last_name
+		order.first_kana = user.first_kana
+		order.last_kana = user.last_kana
+		order.postal_code = user.postal_code
+		order.adress = user.adress
 		order.save
 		cart_products = cart.cart_products
 		cart_products.each do |cart_product|
@@ -57,7 +63,12 @@ class ProductsController < ApplicationController
 	private
 
 	def cart_product_params
-  	params.require(:cart_product).permit(:count)
-  end
+  		params.require(:cart_product).permit(:count)
+    end
+
+	def order_params
+  		params.require(:order).permit(:receiver_id)
+    end
+
 end
 
