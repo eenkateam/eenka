@@ -19,6 +19,10 @@ resources :orders, only: [:show]
 resources :users, only: [:show]
 
 namespace :admin do
+  resources :artsits
+end
+
+namespace :admin do
   resources :products do
   	resources :discs do
       resources :songs
