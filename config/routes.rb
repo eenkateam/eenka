@@ -19,7 +19,7 @@ resources :orders, only: [:show]
 resources :users, only: [:show]
 
 namespace :admin do
-  resources :artsits
+  resources :artists
 end
 
 namespace :admin do
