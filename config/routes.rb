@@ -20,7 +20,9 @@ resources :users, only: [:show]
 
 namespace :admin do
   resources :products do
-  	resources :discs
+  	resources :discs do
+      resources :songs
+    end
   end
 end
 root :to => 'products#index'

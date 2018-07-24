@@ -1,0 +1,29 @@
+<h1><%= @product.product_name %> の詳細です</h1>
+
+<p>商品名</p>
+<p><%= @product.product_name %></p>
+
+<p>価格</p>
+<p><%= @product.price %></p>
+
+<p>在庫</p>
+<p><%= @product.stock %></p>
+
+<h2>
+	ディスク一覧 
+	<%= link_to "追加", new_admin_product_disc_path(@product) %>
+</h2>
+
+<% @product.discs.each do |disc| %>
+	<h3><%= disc.disc_number %>枚目</h3>
+
+	<p><%= disc.disc_name %></p>
+
+	<h4>
+		曲一覧 
+		<%= link_to "曲追加", new_admin_product_disc_song_path(@product, disc) %>
+	</h4>
+
+		<%= disc.songs.each do |song| %>
+		
+<% end %>

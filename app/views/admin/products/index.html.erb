@@ -2,13 +2,14 @@
 
 <% @products.each do |product| %>
 	<p>商品名</p>
-	<%= product.product_name %>
+	<p><%= product.product_name %></p>
 
 	<p>価格</p>
-	<%= product.price %>
+	<p><%= product.price %></p>
 
 	<p>在庫</p>
-	<%= product.stock %>
+	<p><%= product.stock %></p>
 
-	<%= link_to "ディスク登録", new_admin_product_disc_path(product) %>
+	<p><%= link_to "詳細", admin_product_path(product) %></p>
+
 <% end %>
