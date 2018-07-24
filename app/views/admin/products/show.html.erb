@@ -19,11 +19,12 @@
 
 	<p><%= disc.disc_name %></p>
 
-	<h4>
+	<p><strong>
 		曲一覧 
 		<%= link_to "曲追加", new_admin_product_disc_song_path(@product, disc) %>
-	</h4>
+	</strong></p>
 
-		<%= disc.songs.each do |song| %>
-		
+		<% disc.songs.each do |song| %>
+			<p><%= song.song_number%> <%= song.song_name %></p>
+		<% end %>
 <% end %>
