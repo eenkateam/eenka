@@ -12,6 +12,7 @@ class CartsController < ApplicationController
 			@cart_products.each do |cart_product|
 				@price = @price + cart_product.product.price * cart_product.count
 			end
+			@order = Order.new
 		else
 			redirect_to products_path
 		end
