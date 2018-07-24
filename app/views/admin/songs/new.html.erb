@@ -1,0 +1,13 @@
+<h1>曲登録</h1>
+
+<%= form_for([@product, @disc, @song], url: admin_product_disc_songs_path) do |f| %>
+
+	<p><%= f.label :song_name, "曲名" %></p>
+	<%= f.text_field :song_name %>
+
+	<p><%= f.label :song_number, "曲順" %></p>
+	<%= f.text_field :song_number %>
+
+	<%= f.submit "登録" %>
+
+<% end %>
