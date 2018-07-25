@@ -1,6 +1,6 @@
 <h1>アーティスト新規登録</h1>
 
-<%= form_for(@artist, url: admin_products_path) do |f| %>
+<%= form_for(@artist, url: admin_artists_path) do |f| %>
 
 	<p><%= f.label :artist_image, "アーティスト画像" %></p>
 	<%= f.attachment_field :artist_image %>
