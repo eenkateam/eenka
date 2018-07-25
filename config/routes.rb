@@ -23,6 +23,11 @@ namespace :admin do
 end
 
 namespace :admin do
+  resources :genres
+end
+
+
+namespace :admin do
   resources :products do
   	resources :discs do
       resources :songs
