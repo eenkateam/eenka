@@ -16,7 +16,7 @@ devise_for :users, controllers: {
 resources :products, only: [:show, :index]
 resources :carts, only: [:show]
 resources :orders, only: [:show]
-resources :users, only: [:show]
+resources :users, only: [:show, :edit]
 
 namespace :admin do
   resources :artists

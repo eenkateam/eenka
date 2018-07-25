@@ -1,0 +1,108 @@
+<h2>ユーザー編集画面</h2>
+  <%= form_for(@user) do |f| %>
+  <table>
+<!--  -->
+  <tr>
+  	<td align="left">名前</td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  <tr>
+	<td align="left">性</td>
+	<td align="left"><%= f.text_field :last_name %></td>
+	<td align="left">名</td>
+	<td align="left"><%= f.text_field :first_name %></td>
+  </tr>
+<!--  -->
+  <tr>
+  	<td align="left">名前（ふりがな）</td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  <tr>
+	<td align="left">セイ</td>
+	<td align="left"><%= f.text_field :last_kana %></td>
+	<td align="left">メイ</td>
+	<td align="left"><%= f.text_field :first_kana %></td>
+  </tr>
+<!--  -->
+  <tr>
+  	<td align="left">郵便番号（ハイフンなしで7桁）</td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  <tr>
+	<td align="left">〒</td>
+	<td align="left"><%= f.text_field :postal_code %></td>
+	<td></td>
+  	<td></td>
+  </tr>
+<!--  -->
+  <tr>
+  	<td align="left">住所（50文字以内）</td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  <tr>
+	<td align="left"><%= f.text_field :adress %></td>
+	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+<!--  -->
+  <tr>
+  	<td align="left">電話番号（ハイフンなしで）</td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  <tr>
+	<td align="left"><%= f.text_field :phone_number %></td>
+	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  <tr>
+<!--  -->
+  	<td align="left">メールアドレス</td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  <tr>
+	<td align="left"><%= f.text_field :email %></td>
+	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+<!--  -->
+  <tr>
+  	<td align="left">パスワード</td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  <tr>
+  	<td>新しいパスワード</td>
+	<td align="left"><%= f.password_field :password %></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  
+  <tr>
+  	<td>現在のパスワード</td>
+  	<td><%= f.password_field :current_password, autocomplete: "off" %></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+<!--  -->
+  <tr>
+	<td align="left"><%= f.submit 'ユーザー情報更新' %></td>
+	<td></td>
+  </tr>
+  </table>
+  <% end %>
