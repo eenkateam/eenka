@@ -1,0 +1,8 @@
+<h1><%= @artist.artist_name %></h1>
+
+<%= attachment_image_tag @artist, :artist_image, :fill, 200, 200, format: 'jpeg' %>
+<h4>紹介文</h4>
+<p><%= @artist.opinion %></p>
+
+<%= link_to "編集", edit_admin_artist_path(@artist) %><br>
+<%= link_to "アーティスト一覧に戻る", admin_artists_path %>

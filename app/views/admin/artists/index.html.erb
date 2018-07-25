@@ -1,0 +1,16 @@
+<h1>管理者側からのアーティスト一覧です</h1>
+
+<% @artists.each do |artist| %>
+
+	<%= attachment_image_tag artist, :artist_image, :fill, 100, 100, format: 'jpeg' %>
+
+	<h2><%=  artist.artist_name %></h2>
+
+	<p>紹介文</p>
+	<p><%= artist.opinion %></p>
+
+	<p><%= link_to "詳細", admin_artist_path(artist) %></p>
+
+<% end %>
+<br>
+<h4><%= link_to "アーティスト追加", new_admin_artist_path %></h4>

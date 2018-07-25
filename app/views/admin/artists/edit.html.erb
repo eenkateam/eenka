@@ -1,0 +1,16 @@
+<%= form_for(@artist, url: admin_artist_path) do |f| %>
+
+	<p><%= f.label :artist_image, "アーティスト画像" %></p>
+	<%= f.attachment_field :artist_image %>
+
+	<p><%= f.label :artist_name, "アーティスト名" %></p>
+	<%= f.text_field :artist_name %>
+
+	<p><%= f.label :opinion, "紹介文" %></p>
+	<%= f.text_area :opinion %>
+
+	<%= f.submit "変更" %>
+
+<% end %>
+
+<%= link_to "アーティスト詳細に戻る", admin_artist_path(@artist) %>
