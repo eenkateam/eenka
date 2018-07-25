@@ -1,0 +1,12 @@
+<%= form_for(@genre, url: admin_genres_path) do |f| %>
+	<p><%= f.label :genre_name, "「〜年代」と入力してください" %></p>
+	<p><%= f.text_field :genre_name %></p>
+
+	<p><%= f.label :opinion, "説明文" %></p>
+	<p><%= f.text_area :opinion %></p>
+
+	<p><%= f.submit "登録"%></p>
+
+<% end %>
+
+<%= link_to "年代一覧へ戻る", admin_genres_path %>

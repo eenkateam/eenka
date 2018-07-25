@@ -1,0 +1,7 @@
+<h1><%= @genre.genre_name %></h1>
+<br>
+<p><storong>紹介文</storong></p>
+<%= @genre.opinion%>
+
+<%= link_to "編集", edit_admin_genre_path(@genre) %><br>
+<%= link_to "年代一覧へ戻る", admin_genres_path %>
