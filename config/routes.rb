@@ -26,6 +26,10 @@ namespace :admin do
   resources :genres
 end
 
+namespace :admin do
+  resources :labels
+end
+
 
 namespace :admin do
   resources :products do
