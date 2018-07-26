@@ -1,5 +1,6 @@
 <h1>商品新規登録</h1>
 
+<%= @artists = @artists %>
 <%= form_for(@product, url: admin_products_path) do |f| %>
 
 	<p><%= f.label :image, "ジャケット画像" %></p>
@@ -14,6 +15,10 @@
 	<p><%= f.label :stock, "在庫" %></p>
 	<%= f.text_field :stock %>
 
+	<%= f.select :artist_name, @artists.map{|t| [t.artist_name]} %>
+
 	<%= f.submit "登録" %>
 
 <% end %>
+
+<%= link_to "商品一覧に戻る", admin_products_path %>

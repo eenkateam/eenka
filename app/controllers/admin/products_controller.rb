@@ -1,6 +1,7 @@
 class Admin::ProductsController < ApplicationController
 	def new
 		@product = Product.new
+		@products = Product.all
 	end
 
 	def edit
