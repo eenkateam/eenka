@@ -3,8 +3,16 @@
 
 <p>=======================</p>
 <% @products.each do |product| %>
+	<%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg' %>
+
 	<p>商品名</p>
 	<p><%= product.product_name %></p>
+
+	<p>アーティスト名</p>
+	<p><%= product.artist.artist_name %></p>
+
+	<p>年代</p>
+	<p><%= product.genre.genre_name %></p>
 
 	<p>価格</p>
 	<p><%= product.price %></p>
