@@ -35,11 +35,30 @@ class ProductsController < ApplicationController
 	end
 
 	def purchase
+		#カートとユーザーを持ってくる
 		cart = Cart.find(params[:cart_id])
 		user = current_user
+		cart_products = cart.cart_products
+		#productテーブルの在庫をcartproductに入っている個数分だけ減らす
+		products = cart.products
+		cart_products.each do |cart_product|
+			product = Product.find(cart_product.product_id)
+			if product.stock - cart_product.count < 0
+				redirect_to cart_path(user.cart)
+				return
+				#もし在庫がなかったらここで止まってカートに移動して警告文を出してほしい
+			end
+		end
+		#これ以降に来るのは在庫が全部あった場合のみなので、商品をすべて保存する
+		cart_products.each do |cart_product|
+			product = Product.find(cart_product.product_id)
+			product.stock -= cart_product.count
+			product.save
+		end
+
+		#オーダーにいろいろ代入して保存する
 		order = Order.new(order_params)
 		order.user_id=user.id
-		order.receiver_id =1
 		order.first_name = user.first_name
 		order.last_name = user.last_name
 		order.first_kana = user.first_kana
@@ -47,7 +66,8 @@ class ProductsController < ApplicationController
 		order.postal_code = user.postal_code
 		order.adress = user.adress
 		order.save
-		cart_products = cart.cart_products
+
+		#cart_productにあったものをorder_productに移してcart_productを消去する
 		cart_products.each do |cart_product|
 			order_product = OrderProduct.new
 			order_product.product_id = cart_product.product_id
@@ -57,6 +77,7 @@ class ProductsController < ApplicationController
 			order_product.save
 		end
 		cart_products.delete_all
+
 		redirect_to order_path(order)
 	end
 
