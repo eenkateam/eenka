@@ -1,0 +1,13 @@
+<%= form_for(@genre, url: admin_genre_path) do |f| %>
+
+	<p><%= f.label :genre_name, "年代" %></p>
+	<%= f.text_field :genre_name %>
+
+	<p><%= f.label :opinion, "解説" %></p>
+	<%= f.text_area :opinion %>
+
+	<%= f.submit "変更" %>
+
+<% end %>
+
+<%= link_to "年代詳細に戻る", admin_genre_path(@genre) %>

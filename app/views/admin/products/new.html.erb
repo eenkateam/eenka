@@ -8,6 +8,12 @@
 	<p><%= f.label :product_name, "商品名" %></p>
 	<%= f.text_field :product_name %>
 
+	<p><%= f.label :artist_name, "アーティスト" %></p>
+	<p><%= f.collection_select :artist_id, Artist.all, :id, :artist_name %></p>
+
+	<p><%= f.label :genre_name, "年代" %></p>
+	<p><%= f.collection_select :genre_id, Genre.all, :id, :genre_name %></p>
+
 	<p><%= f.label :price, "価格" %></p>
 	<%= f.text_field :price %>
 
@@ -17,3 +23,5 @@
 	<%= f.submit "登録" %>
 
 <% end %>
+
+<%= link_to "商品一覧に戻る", admin_products_path %>

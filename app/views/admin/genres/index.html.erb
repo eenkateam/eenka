@@ -1,0 +1,14 @@
+<h1>管理者側からの年代一覧です</h1>
+
+<% @genres.each do |genre| %>
+
+	<h2><%=  genre.genre_name %></h2>
+
+	<p>紹介文</p>
+	<p><%= genre.opinion %></p>
+
+	<p><%= link_to "詳細", admin_genre_path(genre) %></p>
+
+<% end %>
+<br>
+<h4><%= link_to "年代追加", new_admin_genre_path %></h4>
