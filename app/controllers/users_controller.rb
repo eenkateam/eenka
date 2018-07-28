@@ -23,14 +23,14 @@ class UsersController < ApplicationController
     end
     def update
       user = User.find(params[:id])
-      respond_to do |format|
-        if user.update_with_password(user_params)
-          # パスワードを変更するとログアウトしてしまうので、再ログインが必要
-         sign_in(current_user, bypass: true)
-          format.html { redirect_to user_path(user.id) }
-        else
-          format.html { render :edit }
-        end
-      end
+      user.update(user_params)
+      redirect_to user_path(user.id)
     end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :first_kana, :last_kana, :postal_code, :phone_number, :email, :adress)
+  end
+
 end
