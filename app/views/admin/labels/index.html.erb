@@ -1,0 +1,14 @@
+<h1>管理者側からのレーベル一覧です</h1>
+
+<% @labels.each do |label| %>
+
+	<h2><%=  label.label_name %></h2>
+
+	<p>紹介文</p>
+	<p><%= label.opinion %></p>
+
+	<p><%= link_to "詳細", admin_label_path(label) %></p>
+
+<% end %>
+<br>
+<h4><%= link_to "レーベル追加", new_admin_label_path %></h4>
