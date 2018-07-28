@@ -14,6 +14,9 @@
 	<p><%= f.label :genre_name, "年代" %></p>
 	<p><%= f.collection_select :genre_id, Genre.all, :id, :genre_name %></p>
 
+	<p><%= f.label :label_name, "レーベル" %></p>
+	<p><%= f.collection_select :label_id, Label.all, :id, :label_name %></p>
+
 	<p><%= f.label :price, "価格" %></p>
 	<%= f.text_field :price %>
 

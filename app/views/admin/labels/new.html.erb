@@ -1,0 +1,12 @@
+<%= form_for(@label, url: admin_labels_path) do |f| %>
+	<p><%= f.label :label_name, "レーベル名を入力してください" %></p>
+	<p><%= f.text_field :label_name %></p>
+
+	<p><%= f.label :opinion, "説明文" %></p>
+	<p><%= f.text_area :opinion %></p>
+
+	<p><%= f.submit "登録"%></p>
+
+<% end %>
+
+<%= link_to "レーベル一覧へ戻る", admin_labels_path %>
