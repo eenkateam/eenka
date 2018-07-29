@@ -36,3 +36,10 @@ nav li {
 	list-style: none;
 	margin-left: 20px;
 }
+
+input#user_email, input#user_password{
+  width: 100%;
+  height: 30px;
+  padding: 10px;
+  border: solid 1px #b3b3b3;
+}
