@@ -7,6 +7,9 @@
 	  		<th><%= link_to product.product_name, product_path(product), class: "show_#{product.id}" %></th>
 	  		<th><%= product.price %></th>
 	  		<th><%= product.stock %></th>
+	  		<% if product.stock <= 0 %>
+	  			<th>売り切れ</th>
+	  		<% end %>
 		</tr>
 	<% end %>
 </table>
