@@ -1,4 +1,5 @@
 <h1>ここはカートのページです</h1>
+<%= flash[:notice] %>
 <table>
 	<tr><th>商品名　</th><th>値段　</th><th>枚数　</th><th>在庫枚数</th></tr>
 	<% @cart_products.each do |cart_product| %>
