@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+
 	def show
 		@orders = current_user.orders
 		@price = Array.new(current_user.orders.count,0)
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
 			end
 		end
 	end
+
 	def edit
       @user = User.find(params[:id])
       if current_user == @user
@@ -21,6 +23,7 @@ class UsersController < ApplicationController
     	redirect_to user_path(current_user.id)
       end
     end
+
     def update
       user = User.find(params[:id])
       user.update(user_params)

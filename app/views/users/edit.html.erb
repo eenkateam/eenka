@@ -1,4 +1,4 @@
-<h2>ユーザー編集画面</h2>
+<h2>ユーザー基本情報編集画面</h2>
   <%= form_for(@user) do |f| %>
   <table>
 <!--  -->
@@ -53,34 +53,6 @@
   </tr>
   <tr>
 	<td align="left"><%= f.text_field :phone_number %></td>
-  	<td></td>
-  	<td></td>
-  </tr>
-  <tr>
-<!--  -->
-  	<td align="left">メールアドレス</td>
-  	<td></td>
-  	<td></td>
-  </tr>
-  <tr>
-	<td align="left"><%= f.text_field :email %></td>
-	<td></td>
-  	<td></td>
-  </tr>
-<!--  -->
-  <tr>
-  	<td align="left">パスワード</td>
-  	<td></td>
-  	<td></td>
-  </tr>
-  <tr>
-	<td align="left">新しいパスワード <%= f.password_field :password %></td>
-  	<td></td>
-  	<td></td>
-  </tr>
-  
-  <tr>
-  	<td align="left">現在のパスワード <%= f.password_field :current_password, autocomplete: "off" %></td>
   	<td></td>
   	<td></td>
   </tr>
