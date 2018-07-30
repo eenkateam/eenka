@@ -1,12 +1,12 @@
 <h1>商品新規登録</h1>
 
-<%= form_for(@product, url: admin_products_path) do |f| %>
+<%= form_with(model:@product, local: true, url: admin_products_path) do |f| %>
 
 	<p><%= f.label :image, "ジャケット画像" %></p>
 	<%= f.attachment_field :image %>
 
 	<p><%= f.label :product_name, "商品名" %></p>
-	<%= f.text_field :product_name %>
+	<p><%= f.text_field :product_name %></p>
 
 	<p><%= f.label :artist_name, "アーティスト" %></p>
 	<p><%= f.collection_select :artist_id, Artist.all, :id, :artist_name %></p>
@@ -18,12 +18,31 @@
 	<p><%= f.collection_select :label_id, Label.all, :id, :label_name %></p>
 
 	<p><%= f.label :price, "価格" %></p>
-	<%= f.text_field :price %>
+	<p><%= f.text_field :price %></p>
 
 	<p><%= f.label :stock, "在庫" %></p>
-	<%= f.text_field :stock %>
+	<p><%= f.text_field :stock %></p>
 
-	<%= f.submit "登録" %>
+		<%= f.fields_for :discs do |d| %>
+
+		    <p><%= d.label :disc_name, "ディスクの名前" %></p>
+		    <p><%= d.text_field :disc_name%></p>
+
+		    <p><%= d.label :disc_number, "何枚目のディスクか" %></p>
+		    <p><%= d.number_field :disc_number %></p>
+
+			    <p><%= d.fields_for :songs do |s| %></p>
+
+			     	<p><%= s.label :song_name, "曲名" %></p>
+			     	<p><%= s.text_field :song_name %></p>
+
+			     	<p><%= s.label :song_number, "曲順" %></p>
+			     	<p><%= s.number_field :song_number %></p>
+
+			    <% end %>
+  		<% end %>
+
+  	<%= f.submit "登録" %>
 
 <% end %>
 

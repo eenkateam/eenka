@@ -1,4 +1,6 @@
 class Disc < ApplicationRecord
 	has_many :songs
-	belongs_to :product
+	belongs_to :product, optional: true
+
+	accepts_nested_attributes_for :songs
 end
