@@ -27,7 +27,7 @@
 }
 
 header {
-	background-color: orange;
+	background-color: #cee4ae;
 	height: 50px;
 }
 
@@ -37,9 +37,10 @@ nav li {
 	margin-left: 20px;
 }
 
-input#user_email, input#user_password{
-  width: 100%;
+input#user_email, input#user_password, input#user_password_confirmation, input#user_current_password{
+  width: 320px;
   height: 30px;
   padding: 10px;
   border: solid 1px #b3b3b3;
 }
+
