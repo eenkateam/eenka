@@ -1,0 +1,8 @@
+<h1>ここは新しい送り先を登録するページです</h1>
+<%= form_for(@receiver) do |f| %>
+	<p>送り先の名前</p>
+	<%= f.text_field :receiver_name %>
+	<p>送り先の住所</p>
+	<%= f.text_field :receiver_adress %>
+    <%= f.submit '送り先を登録' %>
+<% end %>

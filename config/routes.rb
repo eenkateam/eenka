@@ -17,6 +17,7 @@ resources :products, only: [:show, :index]
 resources :carts, only: [:show]
 resources :orders, only: [:show]
 resources :users, only: [:show, :edit, :update]
+resources :receivers, only: [:new, :create]
 
 namespace :admin do
   resources :artists

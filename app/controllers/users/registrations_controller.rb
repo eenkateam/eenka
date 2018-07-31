@@ -16,6 +16,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
       cart = Cart.new
       cart.user_id = current_user.id
       cart.save
+      receiver = Receiver.new
+      user = current_user
+      receiver.receiver_adress = user.adress
+      receiver.receiver_name = user.first_name + user.last_name
+      receiver.user_id = user.id
+      receiver.save
     end
   end
 
