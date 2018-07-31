@@ -1,0 +1,18 @@
+<h1>検索結果を表示するページです</h1>
+
+<% @products.each do |product| %>
+	<div class = "product">
+		<p>
+			<%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "th.jpg"%>
+		</p>
+  		<p>商品名：　<%= product.product_name %></p>
+  		<p>価格：　<%= product.price %></p>
+  		<p>歌手名：　<%= product.artist.artist_name %></p>
+  		<p>ジャンル：　<%= product.genre.genre_name %></p>
+  		<p>レーベル：　<%= product.label.label_name %></p>
+  		<p>在庫数：　<%= product.stock %>
+  			<% if product.stock <= 0 %>(売り切れ)<% end %>
+  		</p>
+  		<p><%= link_to "詳細をみる", product_path(product) %></p>
+	</div>
+<% end %>

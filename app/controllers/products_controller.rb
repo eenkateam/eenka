@@ -81,6 +81,11 @@ class ProductsController < ApplicationController
 		redirect_to order_path(order)
 	end
 
+	def search
+		@q = Product.search(search_params)
+    	@products = @q.result(distinct: true)
+	end
+
 	private
 
 	def cart_product_params
@@ -91,5 +96,8 @@ class ProductsController < ApplicationController
   		params.require(:order).permit(:receiver_id)
     end
 
+    def search_params
+    	params.require(:q).permit!
+  	end
 end
 

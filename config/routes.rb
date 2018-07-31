@@ -44,4 +44,5 @@ get 'tops/top', as: 'top'
 post 'products/cart' => 'products#cart', as: 'cart_product'
 delete 'products/cart' => 'products#cart_destroy', as: 'destroy_cart_product'
 post 'products/purcahse' => 'products#purchase', as: 'purchase'
+get 'search', to: 'products#search'
 end
