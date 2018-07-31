@@ -38,8 +38,9 @@ nav li {
 	margin-left: 20px;
 }
 
-input#user_email, input#user_password, input#user_password_confirmation, input#user_current_password{
-  width: 320px;
+input#user_email, input#user_password, input#user_password_confirmation, input#user_current_password, input#user_first_name,
+input#user_last_name, input#user_first_kana, input#user_last_kana, input#user_postal_code, input#user_adress,input#user_phone_number{
+  width: 100%;
   height: 30px;
   padding: 10px;
   border: solid 1px #b3b3b3;
