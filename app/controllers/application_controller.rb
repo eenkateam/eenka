@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :search_give
+
+  def search_give
+  	@q = Product.ransack(params[:q])
+  end
 
   protected
 

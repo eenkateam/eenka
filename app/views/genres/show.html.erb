@@ -1,6 +1,8 @@
-<h1>これは商品一覧ページです</h1>
+<h1>ここはジャンルの詳細ページです</h1>
+<h2><%= @genre.genre_name %></h2>
+
 <div class = "content clearfix">
-	<% @products.each do |product| %>
+	<% @genre.products.each do |product| %>
 		<div class = "product">
 			<p>
 				<%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "th.jpg"%>
@@ -17,5 +19,3 @@
 		</div>
 	<% end %>
 </div>
-
-

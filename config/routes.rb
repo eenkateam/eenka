@@ -18,6 +18,8 @@ resources :carts, only: [:show]
 resources :orders, only: [:show]
 resources :users, only: [:show, :edit, :update]
 resources :receivers, only: [:new, :create]
+resources :artists, only: [:show, :index]
+resources :genres, only: [:show]
 
 namespace :admin do
   resources :artists
@@ -44,4 +46,5 @@ get 'tops/top', as: 'top'
 post 'products/cart' => 'products#cart', as: 'cart_product'
 delete 'products/cart' => 'products#cart_destroy', as: 'destroy_cart_product'
 post 'products/purcahse' => 'products#purchase', as: 'purchase'
+get 'search', to: 'products#search'
 end
