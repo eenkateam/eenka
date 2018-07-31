@@ -1,17 +1,21 @@
 <h1>これは商品一覧ページです</h1>
-
-<table>
-	<tr><th></th><th>商品名</th><th>値段</th><th>在庫枚数</th></tr>
+<div class = "content clearfix">
 	<% @products.each do |product| %>
-		<tr>
-			<th><%= attachment_image_tag product, :image, :fill, 70, 70 %></th>
-	  		<th><%= link_to product.product_name, product_path(product) %></th>
-	  		<th><%= product.price %></th>
-	  		<th><%= product.stock %></th>
-	  		<% if product.stock <= 0 %>
-	  			<th>売り切れ</th>
-	  		<% end %>
-		</tr>
+		<div class = "product">
+			<p>
+				<%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "th.jpg"%>
+			</p>
+	  		<p>商品名：　<%= product.product_name %></p>
+	  		<p>価格：　<%= product.price %></p>
+	  		<p>歌手名：　<%= product.artist.artist_name %></p>
+	  		<p>ジャンル：　<%= product.genre.genre_name %></p>
+	  		<p>レーベル：　<%= product.label.label_name %></p>
+	  		<p>在庫数：　<%= product.stock %>
+	  			<% if product.stock <= 0 %>(売り切れ)<% end %>
+	  		</p>
+	  		<p><%= link_to "詳細をみる", product_path(product) %></p>
+		</div>
 	<% end %>
-</table>
+</div>
+
 

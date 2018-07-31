@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user! , only: [:cart]
 	def index
-		@products = Product.all
+		@products = Product.all.order("id DESC")
 		@cart_product = CartProduct.new
 	end
 	def show
