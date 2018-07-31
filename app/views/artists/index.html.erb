@@ -1,0 +1,11 @@
+<h1>ここはアーティストの一覧ページです</h1>
+
+<table>
+	<% @artist.each do |artist| %>
+		<tr>
+			<th><%= attachment_image_tag artist, :artist_image, :fill, 20, 20, fallback: "th.jpg"%>
+			<th><%= artist.artist_name %>
+			<th><%= link_to artist_path(artist) %>
+		</tr>
+	<% end %>
+</table>

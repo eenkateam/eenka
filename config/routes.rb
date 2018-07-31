@@ -18,6 +18,8 @@ resources :carts, only: [:show]
 resources :orders, only: [:show]
 resources :users, only: [:show, :edit, :update]
 resources :receivers, only: [:new, :create]
+resources :artists, only: [:show, :index]
+resources :genres, only: [:show]
 
 namespace :admin do
   resources :artists
