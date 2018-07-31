@@ -16,7 +16,8 @@
 <% if @cart_products.any? %>
 	<%= form_for(@order, url: purchase_path(cart_id: params[:id])) do |f| %>
 			<%= f.label '送り先' %>
-			<%= f.select :receiver_id, [["1","1"],["1", "1"],["1", "1"],["1","1"]] %>
+			<p><%= f.collection_select :receiver_id, @receiver, :id, :receiver_name %></p>
+			<p><%= link_to '新しい送り先を登録する', new_receiver_path %></p>
 			<%= f.submit '購入する' %>
 	<% end %>
 <% end %>

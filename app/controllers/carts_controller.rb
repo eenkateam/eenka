@@ -13,6 +13,7 @@ class CartsController < ApplicationController
 				@price = @price + cart_product.product.price * cart_product.count
 			end
 			@order = Order.new
+			@receiver = Receiver.find_by(user_id: current_user.id)
 		else
 			redirect_to products_path
 		end
