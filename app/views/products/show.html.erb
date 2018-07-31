@@ -1,6 +1,7 @@
 <h1>ここは商品の詳細ページです</h1>
 <p id="notice"><%= notice %></p>
 <table>
+	<tr><th><%= attachment_image_tag @product, :image, :fill, 100, 100 %></th></tr>
 	<tr><th>商品名:</th><th><%= @product.product_name %></th></tr>
 	<tr><th>値段:</th><th><%= @product.price %></th></tr>
 	<tr><th>在庫枚数:</th><th><%= @product.stock %></th></tr>
@@ -9,6 +10,12 @@
 		<tr>
 			<th><%= disc.disc_number %></th>
 			<th><%= disc.disc_name %></th>
+			<% disc.songs.each do |song| %>
+				<tr>
+					<th><%= song.song_number%></th>
+					<th><%= song.song_name %></th>
+				<tr>
+			<% end %>
 		</tr>
 		<% end %>
 </table>
