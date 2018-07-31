@@ -1,12 +1,16 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
   <head>
     <title>Eenka</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
+    <meta charset="utf-8" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script  src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
@@ -14,21 +18,33 @@
       <nav>
         <ul class="clearfix">
           <% if user_signed_in? %>
-            <P>Userとしてログインしています</P>
-            <li class = ""><%= link_to ' 商品一覧へ' ,products_path %></li>
-            <li class = ""><%= link_to ' ログアウトする', destroy_user_session_path, method: :delete %></li>
-            <li class = ""><%= link_to ' トップページへ' ,top_path %></li>
-            <li class = ""><%= link_to 'カートへ' ,cart_path(current_user.cart) %></li>
-            <li class = ""><%= link_to 'マイページ' ,user_path(current_user) %></li>
+            <div class="ui large menu">
+              <div class="item"><%= link_to ' 商品一覧へ' ,products_path %></div>
+              <div class="item"><%= link_to ' トップページへ' ,top_path %></div>
+              <div class="item">
+                <div class="ui action input">
+                  <input type="text" placeholder="商品名で検索">
+                  <i class="ui button">検索</i>
+                </div>
+              </div>
+              <div class="item"><%= link_to 'カートへ' ,cart_path(current_user.cart) %></div>
+              <div class="item"><%= link_to 'マイページ' ,user_path(current_user) %></div>
+              <div class="right item">
+                <%= link_to ' ログアウトする', destroy_user_session_path, method: :delete %>
+              </div>
+            </div>
+
+            <P><%= current_user.first_name %>さんとしてログインしています</P>
           <% elsif admin_signed_in? %>
             <P>管理者としてログインしています</P>
             <li class = ""><%= link_to ' ログアウトする', destroy_admin_session_path, method: :delete %></li>
           <% else %>
-            <p>ログインしていません</p>
-            <li class = ""><%= link_to ' トップページへ' ,top_path %></li>
-            <li class = ""><%= link_to ' 新規会員登録' ,new_user_registration_path %></li>
-            <li class = ""><%= link_to ' ログイン', new_user_session_path %></li>
-             <li class = ""><%= link_to ' 商品一覧へ' ,products_path %></li>
+            <div class="ui large menu">
+              <p>ログインしていません</p>
+              <div class="item"><%= link_to ' トップページへ' ,top_path %></div>
+              <li class = "item"><%= link_to ' 新規会員登録' ,new_user_registration_path %></li>
+              <li class = "item"><%= link_to ' ログイン', new_user_session_path %></li>
+              <li class = "item"><%= link_to ' 商品一覧へ' ,products_path %></li>
           <% end %>
         </ul>
       </nav>
