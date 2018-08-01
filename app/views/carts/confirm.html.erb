@@ -1,0 +1,22 @@
+<h1>ここは商品確認画面です</h1>
+
+<h3>購入希望商品一覧</h3>
+<table>
+	<tr><th>商品名　</th><th>値段　</th><th>枚数　</th></tr>
+	<% @cart_products.each do |cart_product| %>
+		<tr>
+	  		<th><%= cart_product.product.product_name %></th>
+	  		<th><%= cart_product.product.price %></th>
+	  		<th><%= cart_product.count %>枚</th>
+		</tr>
+	<% end %>
+</table>
+
+
+<h3>合計金額　<%= @price %>円</h3>
+
+<h3>送り先</h3>
+<p>名前　<%= @receiver.receiver_name %></p>
+<p>送り先住所　<%= @receiver.receiver_adress %></p>
+
+<%= link_to '購入する',purchase_path(cart_id: @cart), method: :post%>
