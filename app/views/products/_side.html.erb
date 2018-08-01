@@ -1,0 +1,5 @@
+<div class = "side-menue">
+	<% Genre.all.each do |genre| %>
+	 <p class = "genre_name"><%= link_to genre.genre_name,genre_path(genre)%></p>
+	<% end %>
+</div>

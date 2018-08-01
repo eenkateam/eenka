@@ -18,10 +18,10 @@ class ProductsController < ApplicationController
 				cart_product_update = CartProduct.find_by(cart_id: current_user.cart.id, product_id: cart_product.product_id)
 				cart_product_update.count += cart_product.count
 				cart_product_update.save
-				redirect_to cart_path(cart_product.cart_id)
+				redirect_to products_path
 			else
 				cart_product.save
-				redirect_to cart_path(cart_product.cart_id)
+				redirect_to products_path
 			end
 		else
 			redirect_to product_path(params[:product_id]),notice: '枚数を入力してください.'
@@ -41,14 +41,7 @@ class ProductsController < ApplicationController
 		cart_products = cart.cart_products
 		#productテーブルの在庫をcartproductに入っている個数分だけ減らす
 		products = cart.products
-		cart_products.each do |cart_product|
-			product = Product.find(cart_product.product_id)
-			if product.stock - cart_product.count < 0
-				redirect_to cart_path(user.cart),:notice => "在庫が足りません"
-				return
-				#もし在庫がなかったらここで止まってカートに移動して警告文を出してほしい
-			end
-		end
+		
 		#これ以降に来るのは在庫が全部あった場合のみなので、商品をすべて保存する
 		cart_products.each do |cart_product|
 			product = Product.find(cart_product.product_id)
@@ -57,7 +50,9 @@ class ProductsController < ApplicationController
 		end
 
 		#オーダーにいろいろ代入して保存する
-		order = Order.new(order_params)
+		order = Order.new
+		order.receiver_id = cart.receiver_id
+
 		order.user_id=user.id
 		order.first_name = user.first_name
 		order.last_name = user.last_name
@@ -90,10 +85,6 @@ class ProductsController < ApplicationController
 
 	def cart_product_params
   		params.require(:cart_product).permit(:count)
-    end
-
-	def order_params
-  		params.require(:order).permit(:receiver_id)
     end
 
     def search_params

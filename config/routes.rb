@@ -14,7 +14,9 @@ devise_for :users, controllers: {
 }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 resources :products, only: [:show, :index]
-resources :carts, only: [:show]
+resources :carts, only: [:show, :update] do
+  get '/confirm' => 'carts#confirm',as: 'confirm'
+end
 resources :orders, only: [:show]
 resources :users, only: [:show, :edit, :update]
 resources :receivers, only: [:new, :create]
