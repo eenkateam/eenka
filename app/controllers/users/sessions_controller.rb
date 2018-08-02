@@ -9,14 +9,26 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    if User.find_by(email: params[:user][:email])
+      if User.find_by(email: params[:user][:email]).flag != 1
+          super
+      else
+        redirect_to new_user_session_path
+      end
+    else
+      super
+    end
+  end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    if params[:flag] == "1"
+      current_user.flag = 1
+      current_user.save
+    end
+    super
+  end
 
   # protected
 

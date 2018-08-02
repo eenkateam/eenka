@@ -13,7 +13,7 @@
 				  		<td><%= cart_product.product.price %></td>
 				  		<td><%= cart_product.count %>枚</td>
 				  		<td><%= cart_product.product.stock %>枚</td>
-				  		<td><%= link_to 'カートから削除する', destroy_cart_product_path(product_id: cart_product.id,cart_id: params[:id]), metdod: :delete %></td>
+				  		<td><%= link_to 'カートから削除する', destroy_cart_product_path(product_id: cart_product.id,cart_id: params[:id]), method: :delete %></td>
 					</tr>
 				<% end %>
 			</tbody>
