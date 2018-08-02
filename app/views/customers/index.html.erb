@@ -1,0 +1,23 @@
+<h1>顧客一覧ページです</h1>
+
+<table>
+  <% @customers.each do |customer| %>
+  <thead>
+  	<tr>
+  	  <th>名前</th>
+  	  <th>住所</th>
+  	  <th></th>
+  	  <th></th>
+	</tr>
+  </thead>
+
+  <tbody>
+  	<tr>
+  	  <td><%= customer.last_name %><%= customer.first_name %></td>
+  	  <td><%= customer.adress %></td>
+  	  <td></td>
+  	  <td><%= link_to "購入履歴・配送状況", customer_path(customer.id) %></td>
+  	</tr>
+  </tbody>
+  <% end %>
+</table>
