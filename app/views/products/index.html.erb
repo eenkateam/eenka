@@ -4,7 +4,7 @@
 	<div class = "content clearfix">
 		<% @products.each do |product| %>
 			<div class = "product">
-				<p>
+				<p class = "product_image">
 					<%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "noimage.png"%>
 				</p>
 		  		<p>商品名：　<%= product.product_name %></p>

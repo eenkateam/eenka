@@ -47,7 +47,7 @@ input#user_last_name, input#user_first_kana, input#user_last_kana, input#user_po
 }
 
 .side-menue {
-  width:220px;
+  width:20%;
   float:right;
   padding:70px 0;
   border: solid 2px;
@@ -60,7 +60,7 @@ input#user_last_name, input#user_first_kana, input#user_last_kana, input#user_po
 }
 
 .body {
-  width:1000px;
+  width:80%;
   float:left;
 }
 

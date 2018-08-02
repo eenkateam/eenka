@@ -2,7 +2,7 @@
 
 <table class="ui unstackable table">
 	<% count = 0 %>
-	<% @orders.each do |order| %>
+	<% @orders.order("id DESC").each do |order| %>
   <thead>
     <tr>
       <th>購入日 （<%= order.created_at.strftime('%Y/%m/%d') %>）</th>
