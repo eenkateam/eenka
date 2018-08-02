@@ -3,9 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .product {
-  width:33%;
+  width:310px;
   float:left;
   margin-bottom:100px;
+}
+
+.product_image img {
+	width:100px;
+	height:100px;
 }
 
 .product p {
