@@ -23,6 +23,10 @@ resources :receivers, only: [:new, :create]
 resources :artists, only: [:show, :index]
 resources :genres, only: [:show]
 
+scope :admin do
+  resources :customers, only: [:index, :show]
+end
+
 namespace :admin do
   resources :artists
 end
