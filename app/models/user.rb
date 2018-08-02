@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :adress, length: { in: 2..50}, presence: true
   validates :phone_number, length: { in: 10..11}, presence: true, uniqueness: true
 
-  has_one :cart
-  has_many :orders
-  has_many :receivers
+  has_one :cart, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  has_many :receivers, dependent: :destroy
 end

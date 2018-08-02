@@ -1,30 +1,38 @@
-<h1>ここは商品の詳細ページです</h1>
 <p id="notice"><%= notice %></p>
-<table>
-	<tr><th><%= attachment_image_tag @product, :image, :fill, 100, 100 %></th></tr>
-	<tr><th>商品名:</th><th><%= @product.product_name %></th></tr>
-	<tr><th>値段:</th><th><%= @product.price %></th></tr>
-	<tr><th>在庫枚数:</th><th><%= @product.stock %></th></tr>
-	<tr><th>ディスク:</th></tr>
-		<% @product.discs.each do |disc| %>
-		<tr>
-			<th><%= disc.disc_number %></th>
-			<th><%= disc.disc_name %></th>
-			<% disc.songs.each do |song| %>
-				<tr>
-					<th><%= song.song_number%></th>
-					<th><%= song.song_name %></th>
-				<tr>
+<p><%= attachment_image_tag @product, :image, :fill, 30, 30, fallback: "noimage.png" %></p>
+<div class = "">
+	<table class = "ui celled striped table product_show">
+		<tbody>
+			<tr><td class="column">商品名:</td><td><%= @product.product_name %></td></tr>
+			<tr><td class="column">値段:</td><td><%= @product.price %>円</td></tr>
+			<tr><td class="column">ジャンル:</td><td><%= @product.genre.genre_name %></td></tr>
+			<tr><td class="column">歌手:</td><td><%= @product.artist.artist_name %></td></tr>
+			<tr><td class="column">レーベル:</td><td><%= @product.label.label_name %></td></tr>
+			<tr><td class="column">在庫枚数:</td><td><%= @product.stock %></td></tr>
+		</tbody>
+	</table>
+</div>
+
+<h3>曲情報</h3>
+<div class="product_content clearfix">
+	<% @product.discs.order("disc_number ASC").each do |disc| %>
+		<div class="disc">
+			<p class="disc_name"><%= disc.disc_name %></p>
+			<% disc.songs.order("song_number ASC").each do |song| %>
+				<div class = "song">
+					<p><%= song.song_number%>　<%= song.song_name %></p>
+				</div>
 			<% end %>
-		</tr>
-		<% end %>
-</table>
+		</div>
+	<% end %>
+</div>
+
 
 <% if  user_signed_in? %>
 	<%= form_for(@cart_product, url: cart_product_path(product_id: @product.id)) do |f| %>
-		<%= f.label '枚数' %>
-		<%= f.number_field :count,min:1,max:10000,step:1 %> <br>
-		<%= f.submit 'カートに入れる' %>
+		<h3><%= f.label '購入希望枚数' %></h3>
+		<p><%= f.number_field :count,min:1,max:10000,step:1 %> <br></p>
+		<h3><%= f.submit 'カートに入れる' %></h3>
 	<% end %>
 <% end %>
 
