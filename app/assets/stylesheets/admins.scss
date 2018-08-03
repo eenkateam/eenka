@@ -1,0 +1,54 @@
+// Place all the styles related to the admins controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+/*Login画面*/
+.adm_login_box{
+  background-image: url(adm_login.jpg);
+  width: 100%;
+  height: 700px;
+  background-size: cover;
+  background-position: center;
+}
+
+.adm_login_body{
+  width: fit-content;
+  height: 700px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+.adm_login_content{
+  background-color: #f3f3f3;
+  width: 400px;
+  height: fit-content;
+  padding: 40px;
+  float: left;
+}
+
+.field{
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+/*パスワード再設定画面*/
+.adm_fogot_pw_box{
+  background-image: url(forgot_pw.jpg);
+  width: 100%;
+  height: 700px;
+  background-size: cover;
+  background-position: center;
+}
