@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        password: パスワード
+        password_confirmation: パスワード確認
+        email: メールアドレス
+        first_name: "名前"
+        last_name: "苗字"
+        first_kana: "ナマエ（ふりがな）"
+        last_kana: "ミョウジ（ふりがな）"
+        postal_code: "郵便番号"
+        adress: "住所"
+        phone_number: "電話番号"
+        user: "ユーザー"
