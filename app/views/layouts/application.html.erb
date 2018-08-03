@@ -29,7 +29,7 @@
                     <% end %>
                 </div>
               </div>
-              <div class="item"><%= link_to 'カートへ' ,cart_path(current_user.cart) %></div>
+              <div class="item cart-item"><%= link_to 'カートへ' ,cart_path(current_user.cart) %></div>
               <div class="item"><%= link_to 'マイページ' ,user_path(current_user) %></div>
               <div class="right item">
                 <%= link_to ' ログアウトする', destroy_user_session_path, method: :delete %>

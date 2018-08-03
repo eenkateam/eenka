@@ -30,7 +30,7 @@ class CartsController < ApplicationController
 				@price += cart_product.product.price*cart_product.count
 				product = Product.find(cart_product.product_id)
 				if product.stock - cart_product.count < 0
-					redirect_to cart_path(current_user.cart),:notice => "在庫が足りません"
+					redirect_to cart_path(current_user.cart),:alert => "在庫が足りません"
 					return
 					#もし在庫がなかったらここで止まってカートに移動して警告文を出してほしい
 				end

@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
 				redirect_to products_path
 			end
 		else
-			redirect_to product_path(params[:product_id]),notice: '枚数を入力してください.'
+			redirect_to product_path(params[:product_id]),alert: '枚数を入力してください.'
 		end
 	end
 

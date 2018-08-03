@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= alert %></p>
 <p><%= attachment_image_tag @product, :image, :fill, 30, 30, fallback: "noimage.png" %></p>
 <div class = "">
 	<table class = "ui celled striped table product_show">
@@ -28,7 +28,7 @@
 </div>
 
 
-<% if  user_signed_in? %>
+<% if  user_signed_in? && @product.stock > 0 %>
 	<%= form_for(@cart_product, url: cart_product_path(product_id: @product.id)) do |f| %>
 		<h3><%= f.label '購入希望枚数' %></h3>
 		<p><%= f.number_field :count,min:1,max:10000,step:1 %> <br></p>
