@@ -14,7 +14,10 @@ class CartsController < ApplicationController
 				@price += cart_product.product.price * cart_product.count
 			end
 			@order = Order.new
-			@receiver = Receiver.find_by(user_id: current_user.id)
+			@receiver_array = []
+			current_user.receivers.each do |receiver|
+				@receiver_array << [receiver.receiver_name,receiver.id,]
+			end
 		else
 			redirect_to products_path
 		end

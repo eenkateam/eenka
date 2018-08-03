@@ -20,3 +20,11 @@
 	<% end %>
 	  	<th>合計金額は<%= @price %>円です</th>
 </table>
+
+<h3>購入者</h3>
+<p>名前<%= @order.user.first_name + @order.user.last_name%></p>
+<p>住所<%= @order.user.adress %></p>
+
+<h3>お届け先</h3>
+<p>名前:<%= @order.receiver.receiver_name%></p>
+<p>送り先:<%= @order.receiver.receiver_adress%></p>
