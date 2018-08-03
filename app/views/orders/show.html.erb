@@ -1,4 +1,14 @@
 <h1>ここは購入履歴詳細ページです</h1>
+
+<h3>配達状況:
+	<% if @order.carry_status == 1 or @order.carry_status == nil %>
+	  商品準備中
+	<% elsif @order.carry_status == 2 %>
+	  配達中
+	<% elsif @order.carry_status == 3 %>
+	  配達済み
+	<% end %>
+</h3>
 <table>
 	<tr><th>商品名</th><th>値段</th><th>枚数</th></tr>
 	<% @order_products.each do |order_product| %>

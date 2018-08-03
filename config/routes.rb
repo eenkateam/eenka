@@ -24,7 +24,7 @@ resources :artists, only: [:show, :index]
 resources :genres, only: [:show]
 
 scope :admin do
-  resources :customers, only: [:index, :show]
+  resources :customers, only: [:index, :show, :update]
 end
 
 namespace :admin do
