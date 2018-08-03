@@ -16,7 +16,7 @@
 
 /*Login画面*/
 .login_box{
-  background-image: url(img2.jpg);
+  background-image: url(login.jpg);
   width: 100%;
   height: 700px;
   background-size: cover;
@@ -33,7 +33,7 @@
 .login_content{
   background-color: #f3f3f3;
   width: 400px;
-  height: 480px;
+  height: fit-content;
   padding: 40px;
   float: left;
 }
@@ -45,9 +45,9 @@
 
 /*signup画面*/
 .signup_box{
-  background-image: url(img3.jpg);
+  background-image: url(signup.jpg);
   width: 100%;
-  height: 1300px;
+  height: 1500px;
   background-size: cover;
   background-position: center;
 }
@@ -62,8 +62,17 @@
 .signup_content{
   background-color: #f3f3f3;
   width: 400px;
-  height: 1100px;
+  height: fit-content;
   padding: 40px;
   float: left;
+}
+
+/*パスワード再設定画面*/
+.fogot_pw_box{
+  background-image: url(forgot_pw.jpg);
+  width: 100%;
+  height: 700px;
+  background-size: cover;
+  background-position: center;
 }
 
