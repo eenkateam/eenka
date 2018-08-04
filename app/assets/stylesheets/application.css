@@ -26,7 +26,6 @@
   clear: both;
 }
 
-
 header {
 	background-color: #cee4ae;
 	height: 100px;
@@ -47,21 +46,37 @@ input#admin_email, input#admin_password{
   border: solid 1px #b3b3b3;
 }
 
-.side-menue {
+/*商品一覧ページサイドバー*/
+
+/*.side-menue {
   width:20%;
   float:right;
   padding:70px 0;
   border: solid 2px;
+}*/
+.ui.vertical.menu{
+  float: left;
+}
+
+.ui.menu{
+  margin: 0 0 0 0 !important;
 }
 
 .genre_name {
-  margin:30px auto;
+  margin:0 auto;
   font-size: 20px;
   text-align: center;
 }
 
+.ui.vertical.menu{
+  height: 100%;
+}
+/**/
 .body {
   width:80%;
   float:left;
 }
 
+.ui.card>.image>img, .ui.cards>.card>.image>img{
+  margin: 0 auto;
+}

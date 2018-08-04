@@ -49,3 +49,36 @@ table .product_show{
 .column {
 	width:100px;
 }
+/*レイアウト*/
+.products_body{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.products_content{
+
+}
+
+.products_content_box{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.card_box{
+  width: 250px;
+  float: left;
+  margin: 0 10px;
+}
+
+.product{
+  margin: 0 auto;
+}
+
+
+.ui.card, .ui.cards>.card{
+  width: 250px !important;
+}
+.ui.cards{
+  width: fit-content;
+  margin: 0 0 0 0 !important;
+}
