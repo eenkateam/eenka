@@ -27,8 +27,16 @@
 }
 
 header {
-	background-color: #cee4ae;
-	height: 100px;
+	/*background-color: #cee4ae;*/
+	/*height: 60px;*/
+}
+
+.all_body {
+  margin: 10px;
+}
+
+.large-menue {
+  background-color: #cee4ae !important;
 }
 
 nav li {
