@@ -73,7 +73,7 @@ class ProductsController < ApplicationController
 		end
 		cart_products.delete_all
 
-		redirect_to order_path(order)
+		redirect_to order_path(order),alert: "購入を確定しました"
 	end
 
 	def search
