@@ -1,17 +1,28 @@
 <h1 class="ml11">
   <span class="text-wrapper">
     <span class="line line1"></span>
-    <span class="letters">演歌</span>
+    <span class="letters">ええんか</span>
   </span>
 </h1>
 
+<div class="bxslider">
+  <div><img src="../assets/slide1.jpg"></div>
+  <div><img src="../assets/slide2.png"></div>
+  <div><img src="../assets/slide3.jpg"></div>
+</div>
 
+<div class="slider">
+  <div>I am a slide.</div>
+  <div>I am another slide.</div>
+</div>
+
+<!-- eenkaタイトル用JS -->
 <script>
 $('.ml11 .letters').each(function(){
   $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
 });
 
-anime.timeline({loop: false})
+anime.timeline()
   .add({
     targets: '.ml11 .line',
     scaleY: [0,1],
@@ -36,9 +47,25 @@ anime.timeline({loop: false})
     }
   }).add({
     targets: '.ml11',
-    opacity: 0,
+    // opacity: 0,
     duration: 1000,
     easing: "easeOutExpo",
     delay: 1000
+  });
+</script>
+<!-- スライドショー用JS -->
+<script>
+  $(document).ready(function(){
+    $('.bxslider').bxSlider(){
+      auto: true,
+      autoControls: true,
+      stopAutoOnClick: true,
+      pager: true,
+  }});
+</script>
+
+<script>
+  $(document).ready(function(){
+    $('.slider').bxSlider();
   });
 </script>

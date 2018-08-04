@@ -1,24 +1,46 @@
 <p id="notice"><%= notice %></p>
-<%= render 'products/side' %>
-<div class="body">
+
+<div class="products_body">
 	<h1>これは商品一覧ページです</h1>
-	<div class = "content clearfix">
+	<%= render 'products/side' %>
+	<div class = "products_content clearfix">
+	<div class="products_content_box">
 		<% @products.each do |product| %>
-			<div class = "product">
-				<p class = "product_image">
-					<%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "noimage.png"%>
-				</p>
-		  		<p>商品名：　<%= product.product_name %></p>
-		  		<p>価格：　<%= product.price %></p>
-		  		<p>歌手名：　<%= product.artist.artist_name %></p>
-		  		<p>ジャンル：　<%= product.genre.genre_name %></p>
-		  		<p>レーベル：　<%= product.label.label_name %></p>
-		  		<p>在庫数：　<%= product.stock %>
-		  			<% if product.stock <= 0 %>(売り切れ)<% end %>
-		  		</p>
-		  		<p><%= link_to "詳細をみる", product_path(product) %></p>
+		<%= link_to product_path(product), class: '' do %>
+
+		<div class="card_box clearfix">
+		<div class="ui link cards" >
+		  <div class="card">
+		    <div class="image">
+		      <%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "noimage.png"%>
+		    </div>
+		    <div class="content">
+		      <div class="header">商品名：<%= product.product_name %></div>
+		      <div class="meta">
+		        <a>価格：<%= product.price %>円</a>
+		      </div>
+		      <div class="description">
+		        <p>歌手名：<%= product.artist.artist_name %></p>
+		  		<p>ジャンル：<%= product.genre.genre_name %></p>
+		  		<p>レーベル：<%= product.label.label_name %></p>
+		      </div>
 			</div>
+		    <div class="extra content">
+		      <span class="right floated">
+		        <p></p>
+		      </span>
+		      <span>
+		        <p>在庫数：　<%= product.stock %>
+		    	  <% if product.stock <= 0 %>(売り切れ)<% end %>
+		  		</p>
+		      </span>
+		    </div>
+		  </div>
+		</div>
+		</div>
+
+		<% end %>
 		<% end %>
 	</div>
+	</div>
 </div>
-

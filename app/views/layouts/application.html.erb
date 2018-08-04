@@ -7,10 +7,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheet" href="jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="jquery.bxslider.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
     <script  src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.js"></script>
-    <!-- <link rel="stylesheet" href="css/style.css" /> -->
   </head>
 
   <body>
@@ -19,34 +21,57 @@
         <ul class="clearfix">
           <% if user_signed_in? %>
             <div class="ui large menu">
-              <div class="item"><%= link_to ' 商品一覧へ' ,products_path %></div>
-              <div class="item"><%= link_to ' トップページへ' ,top_path %></div>
+              <div class="item"><i class="star icon"></i>
+                <%= link_to ' トップページへ' ,top_path %>
+              </div>
+              <div class="item"><i class="music icon"></i>
+                <%= link_to ' 商品一覧へ' ,products_path %>
+              </div>
               <div class="item">
                 <div class="ui action input">
-                    <%= search_form_for(@q, url:search_path) do |f| %>
-                      <%= f.text_field :product_name_matches,:placeholder => "商品名で検索" %>
-                      <i class="ui button"><%= f.submit '検索' %></i>
-                    <% end %>
+                  <%= search_form_for(@q, url:search_path) do |f| %>
+                    <%= f.text_field :product_name_matches,:placeholder => "商品名で検索" %>
+                    <i class="ui button"><%= f.submit '検索' %></i>
+                  <% end %>
                 </div>
               </div>
-              <div class="item cart-item"><%= link_to 'カートへ' ,cart_path(current_user.cart) %></div>
-              <div class="item"><%= link_to 'マイページ' ,user_path(current_user) %></div>
-              <div class="right item">
-                <%= link_to ' ログアウトする', destroy_user_session_path, method: :delete %>
+              <div class="item cart-item"><i class="cart arrow down icon"></i>
+                <%= link_to 'カートへ' ,cart_path(current_user.cart) %>
+              </div>
+              <div class="item"><i class="user icon"></i>
+                <%= link_to 'マイページ' ,user_path(current_user) %>
+              </div>
+              <div class="item">
+                <div class="ui button">
+                  <%= link_to ' ログアウトする', destroy_user_session_path, method: :delete %>
+                </div>
               </div>
             </div>
 
             <P><%= current_user.first_name %>さんとしてログインしています</P>
+
           <% elsif admin_signed_in? %>
             <P>管理者としてログインしています</P>
-            <li class = ""><%= link_to ' ログアウトする', destroy_admin_session_path, method: :delete %></li>
+            <li class = "">
+              <%= link_to ' ログアウトする', destroy_admin_session_path, method: :delete %>
+            </li>
           <% else %>
             <div class="ui large menu">
               <p>ログインしていません</p>
-              <div class="item"><%= link_to ' トップページへ' ,top_path %></div>
-              <li class = "item"><%= link_to ' 新規会員登録' ,new_user_registration_path %></li>
-              <li class = "item"><%= link_to ' ログイン', new_user_session_path %></li>
-              <li class = "item"><%= link_to ' 商品一覧へ' ,products_path %></li>
+              <div class="item"><i class="star icon"></i>
+                <%= link_to ' トップページへ' ,top_path %>
+              </div>
+              <div class = "item"><i class="music icon"></i>
+                <%= link_to ' 商品一覧へ' ,products_path %>
+              </div>
+              <div class = "item"><i class="sign in alternate icon"></i>
+                <%= link_to ' ログイン', new_user_session_path %>
+              </div>
+              <div class = "item">
+                <div class="yellow ui button">
+                  <%= link_to ' 新規会員登録' ,new_user_registration_path %>
+                </div>
+              </div>
           <% end %>
         </ul>
       </nav>
