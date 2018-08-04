@@ -4,6 +4,16 @@ class Admin::SongsController < ApplicationController
 		@song = Song.new
 	end
 
+	def edit
+		@song = Song.find(params[:id])
+	end
+
+	def update
+		song = Song.find(params[:id])
+		song.update(song_params)
+		redirect_to edit_admin_product_path(song.disc.product)
+	end
+
 	def create
 		song = Song.new(song_params)
 		song.disc_id = params[:disc_id]

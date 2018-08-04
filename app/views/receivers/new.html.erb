@@ -1,14 +1,16 @@
 <h1>ここは新しい送り先を登録するページです</h1>
-<ul>
+
+<ul class="receiver_error">
 	<% @receiver.errors.full_messages.each do |message| %>
     	<li><%= message %></li>
     <% end %>
 </ul>
-
-<%= form_for(@receiver) do |f| %>
-	<p>送り先の名前</p>
-	<%= f.text_field :receiver_name %>
-	<p>送り先の住所</p>
-	<%= f.text_field :receiver_adress %>
-    <%= f.submit '送り先を登録' %>
-<% end %>
+<div class="receiver_body">
+	<%= form_for(@receiver) do |f| %>
+		<p><%= f.label :receiver_name, "送り先の名前" %></p>
+		<%= f.text_field :receiver_name %>
+		<p><%= f.label :receiver_adress, "送り先の住所" %></p>
+		<%= f.text_field :receiver_adress %>
+	    <p><%= f.submit '送り先を登録' %></p>
+	<% end %>
+</div>

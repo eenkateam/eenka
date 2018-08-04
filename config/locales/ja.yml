@@ -13,4 +13,6 @@ ja:
         postal_code: "郵便番号"
         adress: "住所"
         phone_number: "電話番号"
-        user: "ユーザー"
+      receiver:
+        receiver_name: 送り先の名前
+        receiver_adress: 送り先の住所

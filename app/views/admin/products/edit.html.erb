@@ -1,1 +1,28 @@
-商品編集ページ
+<h1>商品編集ページ</h1>
+
+<%= form_for(@product,url: admin_product_path(@product)) do |f| %>
+	<h4>商品名</h4>
+	<%= f.text_field :product_name %>
+	<h4>価格</h4>
+	<%= f.text_area :price %>
+	<h4>在庫数</h4>
+	<%= f.text_area :stock %>
+	<%= f.submit '商品を編集する' %>
+
+	<h4>レーベル</h4>
+	<h4>アーティスト</h4>
+	<h4>ジャンル</h4>
+<% end %>
+
+<p>このCDのディスクの情報を編集する</p>
+
+<% @product.discs.each do |disc|%>
+	<%= disc.disc_name%>
+	<%=link_to '編集',edit_admin_product_disc_path(product_id: @product.id,id: disc.id) %>
+
+	<% disc.songs.each do |song|%>
+		<%= song.song_name%>
+		<%=link_to '編集',edit_admin_product_disc_song_path(product_id: @product.id,disc_id: disc.id,id: song.id) %>
+	<% end %>
+<% end %>
+

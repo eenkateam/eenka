@@ -10,6 +10,16 @@ class Admin::DiscsController < ApplicationController
 		redirect_to admin_product_path(params[:product_id])
 	end
 
+	def edit
+		@disc = Disc.find(params[:id])
+	end
+
+	def update
+		@disc = Disc.find(params[:id])
+		@disc.update(disc_params)
+		redirect_to admin_product_path
+	end
+
 	private
 
 	def disc_params
