@@ -4,10 +4,13 @@ class ReceiversController < ApplicationController
 	end
 
 	def create
-		receiver = Receiver.new(receiver_params)
-		receiver.user_id = current_user.id
-		receiver.save
-		redirect_to cart_path(current_user.cart)
+		@receiver = Receiver.new(receiver_params)
+		@receiver.user_id = current_user.id
+		if @receiver.save
+			redirect_to cart_path(current_user.cart)
+		else
+			render :new
+		end
 	end
 
 	private
