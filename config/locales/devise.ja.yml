@@ -7,7 +7,7 @@ ja:
     failure:
       already_authenticated: "既にログインしています。"
       inactive: "Your account is not activated yet."
-      invalid: "Invalid email or password."
+      invalid: "メールアドレスとパスワードを入力してください"
       locked: "アカウントがロックされています。"
       last_attempt: "あなたのアカウントがロックされる前に、もう1つの試みを持っています。"
       not_found_in_database: "メールアドレスまたはパスワードが無効です。"
@@ -53,8 +53,8 @@ ja:
       not_found: "は見つかりませんでした。"
       not_locked: "ロックされていません。"
       not_saved:
-        one: "エラーにより、この %{resource} を保存できません："
-        other: "%{count} 個のエラーにより、この %{resource} を保存できません："
+        one: "エラーにより、このユーザーを保存できません："
+        other: "%{count} 個のエラーにより、このユーザーを保存できません："
       taken: "は既に使用されています。"
       blank: "が入力されていません。"
       too_short: "は%{count}文字以上に設定して下さい。"
@@ -62,3 +62,4 @@ ja:
       invalid: "は有効でありません。"
       confirmation: "が内容とあっていません。"
       wrong_length: "の文字数を７文字にしてください"
+      user: "ユーザー"
