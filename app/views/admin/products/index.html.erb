@@ -23,7 +23,7 @@
 	<p>在庫</p>
 	<p><%= product.stock %></p>
 
-	<p><%= link_to "詳細", admin_product_path(product) %></p>
+	<p><%= link_to "詳細", admin_product_path(product) %>|<%= link_to "編集", edit_admin_product_path(product) %></p>
 
 	<p>=======================</p>
 
