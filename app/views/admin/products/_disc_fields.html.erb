@@ -1,0 +1,14 @@
+<div class="nested-fields form-inline">
+	<table class="form-group">
+		<thead>
+			<th>ディスク名</th>
+			<th>何枚目</th>
+			<th></th>
+		</thead>
+		<tbody>
+			<td><%= f.text_field :disc_name %></td>
+			<td><%= f.number_field :disc_number %></td>
+			<td><%= link_to_remove_association "削除", f %></td>
+		</tbody>
+	</table>
+</div>

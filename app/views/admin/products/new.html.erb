@@ -1,6 +1,4 @@
-<h1>商品新規登録</h1>
-
-<%= form_with(model:@product, local: true, url: admin_products_path) do |f| %>
+<%= form_for(@product, url: admin_products_path) do |f| %>
 
 	<p><%= f.label :image, "ジャケット画像" %></p>
 	<%= f.attachment_field :image %>
@@ -23,27 +21,21 @@
 	<p><%= f.label :stock, "在庫" %></p>
 	<p><%= f.text_field :stock %></p>
 
+	<div id="ingredients" class="form-group">
+
 		<%= f.fields_for :discs do |d| %>
 
-		    <p><%= d.label :disc_name, "ディスクの名前" %></p>
-		    <p><%= d.text_field :disc_name%></p>
+			<%= render 'disc_fields', f: d %>
 
-		    <p><%= d.label :disc_number, "何枚目のディスクか" %></p>
-		    <p><%= d.number_field :disc_number %></p>
+		<div id="links">
+			<%= link_to_add_association "ディスク追加", f, :discs %>
+		</div>
+		<% end %>
+	</div>
 
-			    <p><%= d.fields_for :songs do |s| %></p>
-
-			     	<p><%= s.label :song_name, "曲名" %></p>
-			     	<p><%= s.text_field :song_name %></p>
-
-			     	<p><%= s.label :song_number, "曲順" %></p>
-			     	<p><%= s.number_field :song_number %></p>
-
-			    <% end %>
-  		<% end %>
-
-  	<%= f.submit "登録" %>
-
+	<div class="actions">
+    	<%= f.submit %>
+ 	</div>
 <% end %>
 
 <%= link_to "商品一覧に戻る", admin_products_path %>
