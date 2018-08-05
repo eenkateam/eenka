@@ -39,6 +39,10 @@ namespace :admin do
   resources :labels
 end
 
+namespace :admin do
+  resources :orders, only: [:index, :show, :update]
+end
+
 
 namespace :admin do
   resources :products do
