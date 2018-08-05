@@ -34,8 +34,8 @@ class Admin::ProductsController < ApplicationController
 		params
 		.require(:product)
 		.permit(:product_name, :price, :image, :stock, :artist_id, :genre_id, :label_id,
-			:discs_attributes => [:disc_name, :disc_number,
-				:songs_attributes => [:song_name, :song_number]
+			:discs_attributes => [:id, :disc_name, :disc_number, :_destroy,
+				:songs_attributes => [:id, :song_name, :song_number, :_destroy]
 		])
 	end
 end

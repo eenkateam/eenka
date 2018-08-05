@@ -72,3 +72,8 @@ gem 'kakurenbo-puti'
 gem "pry-rails"
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 gem 'ransack'
+
+gem 'therubyracer', platforms: :ruby
+
+gem 'cocoon'
+
