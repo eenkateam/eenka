@@ -1,4 +1,4 @@
-<h1><%= @product.product_name %> の詳細です</h1>
+<h1><%= @product.product_name %> の詳細です|<%= link_to "編集", edit_admin_product_path(@product) %></h1>
 
 <p>商品名</p>
 <p><%= @product.product_name %></p>
