@@ -11,4 +11,16 @@
 			<td><%= link_to_remove_association "削除", f %></td>
 		</tbody>
 	</table>
+
+	<div id="ingredients" class="form-group">
+
+		<%= f.fields_for :songs do |song| %>
+
+			<%= render 'song_fields', f: song %>
+
+		<div id="links">
+			<%= link_to_add_association "曲追加", f, :songs %>
+		</div>
+		<% end %>
+	</div>
 </div>

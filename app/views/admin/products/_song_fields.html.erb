@@ -1,0 +1,14 @@
+<div class="nested-fields form-inline">
+	<table class="form-group">
+		<thead>
+			<th>曲名</th>
+			<th>曲順</th>
+			<th></th>
+		</thead>
+		<tbody>
+			<td><%= f.text_field :song_name %></td>
+			<td><%= f.number_field :song_number %></td>
+			<td><%= link_to_remove_association "削除", f %></td>
+		</tbody>
+	</table>
+</div>

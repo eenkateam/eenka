@@ -1,30 +1,44 @@
-<h1>管理者側からの商品一覧です</h1>
-<h2><%= link_to "商品追加", new_admin_product_path %></h2>
+<div class="products_body">
+	<h1>管理者側からの商品一覧ページです</h1>
+	<%= render 'products/side' %>
+	<div class = "products_content clearfix">
+	<div class="products_content_box">
+		<% @products.each do |product| %>
+		<%= link_to  admin_product_path(product), class: '' do %>
 
-<p>=======================</p>
-<% @products.each do |product| %>
-	<%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg' %>
+		<div class="card_box clearfix">
+		<div class="ui link cards" >
+		  <div class="card">
+		    <div class="image">
+		      <%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "noimage.png"%>
+		    </div>
+		    <div class="content">
+		      <div class="header">商品名：<%= product.product_name %></div>
+		      <div class="meta">
+		        <a>価格：<%= product.price %>円</a>
+		      </div>
+		      <div class="description">
+		        <p>歌手名：<%= product.artist.artist_name %></p>
+		  		<p>ジャンル：<%= product.genre.genre_name %></p>
+		  		<p>レーベル：<%= product.label.label_name %></p>
+		      </div>
+			</div>
+		    <div class="extra content">
+		      <span class="right floated">
+		        <p></p>
+		      </span>
+		      <span>
+		        <p>在庫数：　<%= product.stock %>
+		    	  <% if product.stock <= 0 %>(売り切れ)<% end %>
+		  		</p>
+		      </span>
+		    </div>
+		  </div>
+		</div>
+		</div>
 
-	<p>商品名</p>
-	<p><%= product.product_name %></p>
-
-	<p>アーティスト名</p>
-	<p><%= product.artist.artist_name %></p>
-
-	<p>年代</p>
-	<p><%= product.genre.genre_name %></p>
-
-	<p>レーベル</p>
-	<p><%= product.label.label_name %></p>
-
-	<p>価格</p>
-	<p><%= product.price %></p>
-
-	<p>在庫</p>
-	<p><%= product.stock %></p>
-
-	<p><%= link_to "詳細", admin_product_path(product) %>|<%= link_to "編集", edit_admin_product_path(product) %></p>
-
-	<p>=======================</p>
-
-<% end %>
+		<% end %>
+		<% end %>
+	</div>
+	</div>
+</div>

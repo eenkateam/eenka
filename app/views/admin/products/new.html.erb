@@ -23,9 +23,9 @@
 
 	<div id="ingredients" class="form-group">
 
-		<%= f.fields_for :discs do |d| %>
+		<%= f.fields_for :discs do |disc| %>
 
-			<%= render 'disc_fields', f: d %>
+			<%= render 'disc_fields', f: disc %>
 
 		<div id="links">
 			<%= link_to_add_association "ディスク追加", f, :discs %>
