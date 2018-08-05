@@ -1,0 +1,48 @@
+<h3><%= alert %></h3>
+<div class="order_body">
+	<h3>配達状況:
+		<% if @order.carry_status == 1 or @order.carry_status == nil %>
+		  商品準備中
+		<% elsif @order.carry_status == 2 %>
+		  配達中
+		<% elsif @order.carry_status == 3 %>
+		  配達済み
+		<% end %>
+	</h3>
+
+	<table class="ui celled striped table order_table">
+		<thead>
+			<tr><th>注文日：<%= @order.created_at.strftime('%Y/%m/%d') %></th><th>商品名</th><th>値段</th><th>枚数</th></tr>
+		</thead>
+		<% @order_products.each do |order_product| %>
+			<tr>
+				<td class="order_image"><%= attachment_image_tag order_product.product, :image, :fill, 100, 100, fallback: "noimage.png" %></td>
+		  		<td><%= order_product.product.product_name %></td>
+		  		<td><%= order_product.price %>円</td>
+		  		<td><%= order_product.count %>枚</td>
+			</tr>
+		<% end %>
+	</table>
+
+	<h3 class="price">合計金額は<%= @price %>円です</h3>
+
+	<div class="card_box">
+		<div class="ui link cards" >
+		  <div class="card">
+			<h3>購入者</h3>
+			<p>名前: <%= @order.user.first_name + @order.user.last_name%></p>
+			<p>住所: <%= @order.user.adress %></p>
+		  </div>
+		</div>
+	</div>
+
+	<div class="card_box">
+		<div class="ui link cards" >
+		  <div class="card">
+				<h3>お届け先</h3>
+				<p>名前: <%= @order.receiver.receiver_name%></p>
+				<p>住所: <%= @order.receiver.receiver_adress%></p>
+			</div>
+		</div>
+	</div>
+</div>
