@@ -9,8 +9,8 @@
 		<%= link_to product_path(product), class: '' do %>
 
 		<div class="card_box clearfix">
-		<div class="ui link cards" >
-		  <div class="card">
+		<div class="ui link cards">
+		  <div class="card" link_to="product_path(product)">
 		    <div class="image">
 		      <%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "noimage.png"%>
 		    </div>

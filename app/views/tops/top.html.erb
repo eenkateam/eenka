@@ -5,19 +5,18 @@
   </span>
 </h1>
 
-<div class="bxslider">
-  <div><img src="../assets/slide1.jpg"></div>
-  <div><img src="../assets/slide2.png"></div>
-  <div><img src="../assets/slide3.jpg"></div>
+<div id="slider">
+    <div id="skippr-slider">
+        <div style="background-image: url(../assets/slide1.jpg)"></div>
+        <div style="background-image: url(../assets/slide2.png)"></div>
+        <div style="background-image: url(../assets/slide3.jpg)"></div>
+    </div>
 </div>
 
-<div class="slider">
-  <div>I am a slide.</div>
-  <div>I am another slide.</div>
-</div>
 
-<!-- eenkaタイトル用JS -->
+<script src="./js/skippr.js" type="text/javascript"></script>
 <script>
+// eenkaタイトル用JS
 $('.ml11 .letters').each(function(){
   $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
 });
@@ -52,20 +51,11 @@ anime.timeline()
     easing: "easeOutExpo",
     delay: 1000
   });
-</script>
-<!-- スライドショー用JS -->
-<script>
+// スライドショー用JS
   $(document).ready(function(){
-    $('.bxslider').bxSlider(){
-      auto: true,
-      autoControls: true,
-      stopAutoOnClick: true,
-      pager: true,
-  }});
-</script>
-
-<script>
-  $(document).ready(function(){
-    $('.slider').bxSlider();
+    $("#skippr-slider").skippr({
+      transition: 'slide',
+      autoPlay: true,
+    });
   });
 </script>
