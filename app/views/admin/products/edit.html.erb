@@ -1,12 +1,22 @@
 <h1>商品編集ページ</h1>
 
 <%= form_for(@product,url: admin_product_path(@product)) do |f| %>
+	<h4>画像</h4>
+	<%= f.attachment_field :image %>
 	<h4>商品名</h4>
 	<%= f.text_field :product_name %>
 	<h4>価格</h4>
 	<%= f.text_area :price %>
 	<h4>在庫数</h4>
 	<%= f.text_area :stock %>
+	<h4>歌手</h4>
+	<p><%= f.collection_select :artist_id, Artist.all, :id, :artist_name %></p>
+
+	<h4>レーベル</h4>
+	<p><%= f.collection_select :genre_id, Genre.all, :id, :genre_name %></p>
+
+	<h4>ジャンル</h4>
+	<p><%= f.collection_select :label_id, Label.all, :id, :label_name %></p>
 	<%= f.submit '商品を編集する' %>
 <% end %>
 
