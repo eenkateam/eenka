@@ -11,17 +11,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
-    if user_signed_in?
-      cart = Cart.new
-      cart.user_id = current_user.id
-      cart.save
-      receiver = Receiver.new
-      user = current_user
-      receiver.receiver_adress = user.adress
-      receiver.receiver_name = user.first_name + user.last_name
-      receiver.user_id = user.id
-      receiver.save
+    if admin_signed_in?
+      redirect_to new_user_registration_path,alert: "管理者からログアウトしてください"
+    else
+      super
+      if user_signed_in?
+        cart = Cart.new
+        cart.user_id = current_user.id
+        cart.save
+        receiver = Receiver.new
+        user = current_user
+        receiver.receiver_adress = user.adress
+        receiver.receiver_name = user.first_name + user.last_name
+        receiver.user_id = user.id
+        receiver.save
+      end
     end
   end
 

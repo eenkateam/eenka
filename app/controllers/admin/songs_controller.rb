@@ -1,4 +1,5 @@
 class Admin::SongsController < ApplicationController
+  before_action :authenticate_admin!
 
 	def new
 		@song = Song.new

@@ -1,14 +1,5 @@
 class Admin::GenresController < ApplicationController
-
-	def new
-		@genre = Genre.new
-	end
-
-	def create
-		genre = Genre.new(genre_params)
-		genre.save
-		redirect_to admin_genre_path(genre)
-	end
+  before_action :authenticate_admin!
 
 	def show
 		@genre = Genre.find(params[:id])
