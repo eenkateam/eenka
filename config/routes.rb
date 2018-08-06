@@ -8,7 +8,7 @@ devise_for :admins, controllers: {
 devise_for :users, controllers: {
   sessions:      'users/sessions',
   passwords:     'users/passwords',
-  registrations: 'users/registrations'
+  #registrations: 'users/registrations'
 }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 resources :products, only: [:show, :index]
