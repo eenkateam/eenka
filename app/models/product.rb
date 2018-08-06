@@ -14,4 +14,16 @@ class Product < ApplicationRecord
 	validates :price, presence: true
 
 	accepts_nested_attributes_for :discs, allow_destroy: true
+
+	soft_deletable column: :deleted_at
+	# set_callback :soft_destroy, :after, :soft_destroy_with_children
+	# def soft_destroy_with_children
+	#   if self.root? && self.soft_destroyed?
+	#     self.live_children.each do |child|
+	#       order_product.soft_destroy
+	#       disc.soft_destroy
+	#       cart_product.soft_destroy
+	#     end
+	#   end
+	# end
 end

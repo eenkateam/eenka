@@ -40,5 +40,6 @@ post 'products/cart' => 'products#cart', as: 'cart_product'
 delete 'products/cart' => 'products#cart_destroy', as: 'destroy_cart_product'
 post 'products/purcahse' => 'products#purchase', as: 'purchase'
 get 'search', to: 'products#search'
+delete 'admin/products/:id/edit' => 'admin/products#product_destroy', as: 'destroy_product_product'
 
 end

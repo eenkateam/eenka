@@ -1,11 +1,11 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user! , only: [:cart, :cart_destroy, :purchase]
 	def index
-		@products = Product.all.order("id DESC")
+		@products = Product.without_soft_destroyed.all.order("id DESC")
 		@cart_product = CartProduct.new
 	end
 	def show
-		@product = Product.find(params[:id])
+		@product = Product.without_soft_destroyed.find(params[:id])
 		@cart_product = CartProduct.new
 	end
 
@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
 		
 		#これ以降に来るのは在庫が全部あった場合のみなので、商品をすべて保存する
 		cart_products.each do |cart_product|
-			product = Product.find(cart_product.product_id)
+			product = Product.without_soft_destroyed.find(cart_product.product_id)
 			product.stock -= cart_product.count
 			product.save
 		end
@@ -80,6 +80,7 @@ class ProductsController < ApplicationController
 		@q = Product.search(search_params)
     	@products = @q.result(distinct: true)
 	end
+
 
 	private
 

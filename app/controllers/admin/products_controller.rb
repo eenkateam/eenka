@@ -10,11 +10,11 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def show
-		@product = Product.find(params[:id])
+		@product = Product.without_soft_destroyed.find(params[:id])
 	end
 
 	def index
-		@products = Product.all
+		@products = Product.without_soft_destroyed.all
 	end
 
 	def update
@@ -30,6 +30,12 @@ class Admin::ProductsController < ApplicationController
 		else
 			render :new
 		end
+	end
+
+	def product_destroy
+	  product = Product.find(params[:id])
+	  product.soft_destroy
+	  redirect_to admin_products_path
 	end
 
 	private
