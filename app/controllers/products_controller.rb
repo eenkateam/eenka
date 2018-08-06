@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user! , only: [:cart]
+  before_action :authenticate_user! , only: [:cart, :cart_destroy, :purchase]
 	def index
 		@products = Product.without_soft_destroyed.all.order("id DESC")
 		@cart_product = CartProduct.new

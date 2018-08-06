@@ -1,4 +1,5 @@
 class ReceiversController < ApplicationController
+  before_action :authenticate_user!
 	def new
       @receiver = Receiver.new
 	end

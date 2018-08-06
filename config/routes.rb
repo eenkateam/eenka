@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'discs/new'
-  end
-  devise_for :admins, controllers: {
+  
+devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
-  registrations: 'admins/registrations'
+  # registrations: 'admins/registrations'
 }
 devise_for :users, controllers: {
   sessions:      'users/sessions',
@@ -23,35 +21,25 @@ resources :receivers, only: [:new, :create]
 resources :artists, only: [:show, :index]
 resources :genres, only: [:show]
 
-scope :admin do
-  resources :customers, only: [:index, :show, :update]
-end
-
 namespace :admin do
   resources :artists
-end
-
-namespace :admin do
   resources :genres
-end
-
-namespace :admin do
   resources :labels
-end
-
-
-namespace :admin do
+  resources :orders, only: [:index, :show, :update]
   resources :products do
-  	resources :discs do
+    resources :discs do
       resources :songs
     end
   end
 end
+
 root :to => 'products#index'
+
 get 'tops/top', as: 'top'
 post 'products/cart' => 'products#cart', as: 'cart_product'
 delete 'products/cart' => 'products#cart_destroy', as: 'destroy_cart_product'
 post 'products/purcahse' => 'products#purchase', as: 'purchase'
 get 'search', to: 'products#search'
 delete 'admin/products/:id/edit' => 'admin/products#product_destroy', as: 'destroy_product_product'
+
 end

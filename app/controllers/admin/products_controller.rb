@@ -1,4 +1,5 @@
 class Admin::ProductsController < ApplicationController
+  before_action :authenticate_admin!
 	def new
 		@product = Product.new
 		@product.discs.build.songs.build
@@ -23,9 +24,12 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def create
-		product = Product.new(product_params)
-		product.save
-		redirect_to admin_products_path
+		@product = Product.new(product_params)
+		if @product.save
+			redirect_to admin_products_path
+		else
+			render :new
+		end
 	end
 
 	def product_destroy

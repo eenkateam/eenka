@@ -9,9 +9,13 @@ class Admins::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    if user_signed_in?
+      redirect_to new_admin_session_path,alert: "ユーザーからログアウトしてください"
+    else
+     super
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy

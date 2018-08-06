@@ -10,14 +10,18 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    if User.find_by(email: params[:user][:email])
-      if User.find_by(email: params[:user][:email]).flag != 1
-          super
-      else
-        redirect_to new_user_session_path
-      end
+    if admin_signed_in?
+      redirect_to new_user_session_path,alert: "管理者からログアウトしてください"
     else
-      super
+      if User.find_by(email: params[:user][:email])
+        if User.find_by(email: params[:user][:email]).flag != 1
+            super
+        else
+          redirect_to new_user_session_path
+        end
+      else
+        super
+      end
     end
   end
 

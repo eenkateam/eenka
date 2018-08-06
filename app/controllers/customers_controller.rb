@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  before_action :authenticate_admin!
   def index
   	if User.all != nil
   	  @customers = User.all

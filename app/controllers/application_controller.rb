@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
   	@q = Product.ransack(params[:q])
   end
 
+
+  private
+  def after_sign_in_path_for(resource)
+      products_path
+  end
+
   protected
 
   def configure_permitted_parameters

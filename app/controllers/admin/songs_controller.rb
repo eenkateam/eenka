@@ -1,4 +1,5 @@
 class Admin::SongsController < ApplicationController
+  before_action :authenticate_admin!
 
 	def new
 		@song = Song.new
@@ -15,9 +16,18 @@ class Admin::SongsController < ApplicationController
 	end
 
 	def create
-		song = Song.new(song_params)
-		song.disc_id = params[:disc_id]
-		song.save
+		@song = Song.new(song_params)
+		@song.disc_id = params[:disc_id]
+		if @song.save
+			redirect_to admin_product_path(params[:product_id])
+		else
+			render :new
+		end
+	end
+
+	def destroy
+		song = Song.find(params[:song_id])
+		song.destroy
 		redirect_to admin_product_path(params[:product_id])
 	end
 

@@ -1,10 +1,7 @@
 class CartsController < ApplicationController
-
   before_action :authenticate_user!
-	def create
 
-	end
-
+  #カートに移動するアクション
 	def show
 		if Cart.find(params[:id]).user_id == current_user.id
 			@cart_products = current_user.cart.cart_products
@@ -35,7 +32,6 @@ class CartsController < ApplicationController
 				if product.stock - cart_product.count < 0
 					redirect_to cart_path(current_user.cart),:alert => "在庫が足りません"
 					return
-					#もし在庫がなかったらここで止まってカートに移動して警告文を出してほしい
 				end
 			end
 		else
