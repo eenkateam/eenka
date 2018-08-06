@@ -1,0 +1,26 @@
+<h1>購入履歴一覧</h1>
+
+<table class="ui celled table">
+	<thead>
+		<th>購入日</th>
+		<th>購入者</th>
+		<th>配送状況</th>
+		<th></th>
+	</thead>
+	<tbody>
+	<% @orders.each do |order| %>
+		<td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+		<td><%= order.first_name %> <%= order.last_name %></td>
+		<td>
+			<% if order.carry_status == 1 || order.carry_status == nil %>
+		  		商品準備中
+			<% elsif order.carry_status == 2 %>
+		  		配達中
+			<% elsif order.carry_status == 3 %>
+		  		配達済み
+			<% end %>
+		</td>
+		<td><%= link_to "詳細", admin_order_path(order) %></td>
+	<% end %>
+	</tbody>
+</table>

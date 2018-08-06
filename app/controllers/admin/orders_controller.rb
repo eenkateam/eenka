@@ -9,4 +9,8 @@ class Admin::OrdersController < ApplicationController
 			@price += order_product.price * order_product.count
 		end
 	end
+
+	def index
+		@orders = Order.all
+	end
 end
