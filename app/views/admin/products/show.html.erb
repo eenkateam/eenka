@@ -1,41 +1,54 @@
 <h1><%= @product.product_name %> の詳細です|<%= link_to "編集", edit_admin_product_path(@product) %></h1>
+<div class="ui link cards" >
+	<div class="card">
+		<div class="image">
+			<%= attachment_image_tag @product, :image, :fill, 100, 100, fallback: "noimage.png"%>
+		</div>
+		<div class="content">
+			<div class="header">商品名:<%= @product.product_name %></div>
+			<div class="description">
+		      <p>歌手名：<%= @product.artist.artist_name %></p>
+		  		<p>年代：<%= @product.genre.genre_name %></p>
+		  		<p>レーベル：<%= @product.label.label_name %></p>
+		  		<p>価格:<%= @product.price %></p>
+		  		<p>在庫：<%= @product.stock %></p>
+		   </div>
+		</div>
+	</div>
+</div>
 
-<p>商品名</p>
-<p><%= @product.product_name %></p>
+<div class="product_content clearfix">
+	<h3><%= link_to "ディスク追加", new_admin_product_disc_path(@product) %></h3>
+	<% @product.discs.order("disc_number ASC").each do |disc| %>
+		<div class="disc">
+			<h3><%= disc.disc_number %>枚目</h3>
+			<p class="disc_name"><%= disc.disc_name %>　<%= link_to '削除', admin_product_disc_path(disc_id: disc.id,product_id: @product.id), method: :delete %>|<%=link_to '編集',edit_admin_product_disc_path(product_id: @product.id,id: disc.id) %></p>
+			<% disc.songs.order("song_number ASC").each do |song| %>
+				<div class = "song">
+					<p><%= song.song_number%>曲目：<%= song.song_name %>　<%= link_to '削除', admin_product_disc_song_path(song_id: disc.id,product_id: @product.id,disc_id:disc.id), method: :delete %>|<%=link_to '編集',edit_admin_product_disc_song_path(product_id: @product.id,disc_id: disc.id,id: song.id) %></p>
+				</div>
+			<% end %>
+			<%= link_to "曲追加", new_admin_product_disc_song_path(@product, disc) %>
+		</div>
+	<% end %>
+</div>
 
-<p>アーティスト名</p>
-<p><%= @product.artist.artist_name %></p>
-
-<p>年代</p>
-<p><%= @product.genre.genre_name %></p>
-
-<p>レーベル</p>
-<p><%= @product.label.label_name %></p>
-
-<p>価格</p>
-<p><%= @product.price %></p>
-
-<p>在庫</p>
-<p><%= @product.stock %></p>
-
-<h2>
-	ディスク一覧 
+<!-- <h2>
+	ディスク一覧
 	<%= link_to "追加", new_admin_product_disc_path(@product) %>
 </h2>
 
-<% @product.discs.each do |disc| %>
+<% @product.discs.order("disc_number ASC").each do |disc| %>
 	<h3><%= disc.disc_number %>枚目</h3>
 
-	<p><%= disc.disc_name %></p>
+	<p><%= disc.disc_name %><%= link_to '削除', admin_product_disc_path(disc_id: disc.id,product_id: @product.id), method: :delete %>|<%=link_to '編集',edit_admin_product_disc_path(product_id: @product.id,id: disc.id) %></p>
 
 	<p><strong>
-		曲一覧 
+		曲一覧
 		<%= link_to "曲追加", new_admin_product_disc_song_path(@product, disc) %>
 	</strong></p>
 
-		<% disc.songs.each do |song| %>
-			<p><%= song.song_number%> <%= song.song_name %></p>
+		<% disc.songs.order("song_number ASC").each do |song| %>
+			<p><%= song.song_number%> <%= song.song_name %>|<%= link_to '削除', admin_product_disc_song_path(song_id: disc.id,product_id: @product.id,disc_id:disc.id), method: :delete %></p>
 		<% end %>
-<% end %>
-
-<%= link_to "編集", edit_admin_product_path(@product) %>
+<% end %> -->

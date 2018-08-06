@@ -1,7 +1,11 @@
 <h1>ディスク新規登録</h1>
 
+<ul class="receiver_error">
+	<% @disc.errors.full_messages.each do |message| %>
+    	<li><%= message %></li>
+    <% end %>
+</ul>
 <%= form_for([@product, @disc], url: admin_product_discs_path) do |f| %>
-
 	<p><%= f.label :disc_name, "ディスクの名前" %></p>
 	<%= f.text_field :disc_name %>
 
