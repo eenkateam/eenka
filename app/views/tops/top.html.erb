@@ -5,16 +5,18 @@
   </span>
 </h1>
 
-<div class="bxslider">
-  <div><img src="../assets/slide1.jpg"></div>
-  <div><img src="../assets/slide2.png"></div>
-  <div><img src="../assets/slide3.jpg"></div>
+<div class="container">
+    <div class="theTarget">
+        <div style="background-image: url(../assets/slide1.jpg)"></div>
+        <div style="background-image: url(../assets/slide2.png)"></div>
+        <div style="background-image: url(../assets/slide3.jpeg)"></div>
+    </div>
 </div>
 
-<div class="slider">
-  <div>I am a slide.</div>
-  <div>I am another slide.</div>
-</div>
+<!-- このページでJSを読み込んでいる -->
+<script  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../assets/skippr.min.js"></script>
+<script src="../assets/script.js"></script>
 
 <!-- eenkaタイトル用JS -->
 <script>
@@ -51,21 +53,5 @@ anime.timeline()
     duration: 1000,
     easing: "easeOutExpo",
     delay: 1000
-  });
-</script>
-<!-- スライドショー用JS -->
-<script>
-  $(document).ready(function(){
-    $('.bxslider').bxSlider(){
-      auto: true,
-      autoControls: true,
-      stopAutoOnClick: true,
-      pager: true,
-  }});
-</script>
-
-<script>
-  $(document).ready(function(){
-    $('.slider').bxSlider();
   });
 </script>
