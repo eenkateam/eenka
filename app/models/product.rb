@@ -9,5 +9,9 @@ class Product < ApplicationRecord
 	has_many :orders,through: :order_products
 	has_many :carts,through: :cart_products
 
+	validates :product_name, presence: true
+	validates :stock, presence: true
+	validates :price, presence: true
+
 	accepts_nested_attributes_for :discs, allow_destroy: true
 end

@@ -16,3 +16,7 @@ ja:
       receiver:
         receiver_name: 送り先の名前
         receiver_adress: 送り先の住所
+      product:
+        product_name: "商品名"
+        stock: "在庫"
+        price: "価格  "

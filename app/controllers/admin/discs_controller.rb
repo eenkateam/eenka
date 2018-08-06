@@ -1,4 +1,6 @@
 class Admin::DiscsController < ApplicationController
+  before_action :authenticate_admin!
+
 	def new
 		@disc = Disc.new
 	end

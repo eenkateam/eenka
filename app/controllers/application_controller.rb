@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   	@q = Product.ransack(params[:q])
   end
 
+ 
   protected
 
   def configure_permitted_parameters

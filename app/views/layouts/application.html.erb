@@ -19,8 +19,8 @@
     <header>
       <nav>
         <ul class="clearfix">
-          <% if user_signed_in? %>
-            <div class="ui large menu large-menue">
+          <div class="ui large menu large-menue">
+            <% if user_signed_in? %>
               <div class="item"><i class="star icon"></i>
                 <%= link_to ' トップページへ' ,top_path %>
               </div>
@@ -46,17 +46,15 @@
                   <%= link_to ' ログアウトする', destroy_user_session_path, method: :delete %>
                 </div>
               </div>
-            </div>
             <p id="notice"><%= notice %></p>
             <%= current_user.first_name %>さんとしてログインしています
 
           <% elsif admin_signed_in? %>
             <P>管理者としてログインしています</P>
-            <li class = "">
-              <%= link_to ' ログアウトする', destroy_admin_session_path, method: :delete %>
-            </li>
+            <div class = "item">
+              <i><%= link_to ' 管理者からログアウトする', destroy_admin_session_path, method: :delete %></i>
+            </div>
           <% else %>
-            <div class="ui large menu large-menue">
               <p>ログインしていません</p>
               <div class="item"><i class="star icon"></i>
                 <%= link_to ' トップページへ' ,top_path %>
@@ -79,8 +77,8 @@
                 <div class="yellow ui button">
                   <%= link_to ' 新規会員登録' ,new_user_registration_path %>
                 </div>
-              </div>
-          <% end %>
+            <% end %>
+           </div>
         </ul>
       </nav>
     </header>
