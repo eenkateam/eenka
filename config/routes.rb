@@ -3,12 +3,12 @@ Rails.application.routes.draw do
 devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
-  registrations: 'admins/registrations'
+  # registrations: 'admins/registrations'
 }
 devise_for :users, controllers: {
   sessions:      'users/sessions',
   passwords:     'users/passwords',
-  #registrations: 'users/registrations'
+  registrations: 'users/registrations'
 }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 resources :products, only: [:show, :index]
@@ -23,7 +23,6 @@ resources :genres, only: [:show]
 
 namespace :admin do
   resources :artists
-  resources :customers, only: [:index, :show, :update]
   resources :genres
   resources :labels
   resources :orders, only: [:index, :show, :update]

@@ -1,4 +1,4 @@
-<h3><%= alert %></h3>
+<h3><%= notice %></h3>
 <div class="order_body">
 	<h3>配達状況:
 		<% if @order.carry_status == 1 || @order.carry_status == nil %>
@@ -9,6 +9,11 @@
 		  配達済み
 		<% end %>
 	</h3>
+
+	<%= form_for(@order, url: admin_order_path) do |f| %>
+		<%= f.select :carry_status, [["商品準備中", 1], ["配達中", 2], ["配達済み", 3]] %>
+		<%= f.submit "変更" %>
+	<% end %>
 
 	<table class="ui celled striped table order_table">
 		<thead>
