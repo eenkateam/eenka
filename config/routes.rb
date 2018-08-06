@@ -34,12 +34,7 @@ namespace :admin do
   end
 end
 
-if :authenticate_admin!
-  root :to => 'admin/products#index'
-else
-  root :to => 'products#index'
-end
-
+root :to => 'products#index'
 
 get 'tops/top', as: 'top'
 post 'products/cart' => 'products#cart', as: 'cart_product'

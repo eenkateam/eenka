@@ -1,24 +1,18 @@
-# README
+# eenka
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# Dependency
+使用言語とバージョン、必要なライブラリとそのバージョンを書く
+Pythonならrequirements.txtを用意するのも良い
 
-* Ruby version
+# Setup
+セットアップ方法を書く。用意するハードウェアとソフトウェアをセットアップするためのコマンドを記載する
 
-* System dependencies
+# Usage
+使い方。なるべく具体的に書く。サンプルも書く
 
-* Configuration
+# Licence
+This software is released under the MIT License, see LICENSE.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Authors
+作者を明示する。特に、他者が作成したコードを利用する場合は、そのコードのライセンスに従った上で、リポジトリのそれぞれのコードのオリジナルの作者が誰か分かるように明示する（私はそれが良いと思い自主的にしています）。
