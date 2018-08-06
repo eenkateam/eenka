@@ -19,4 +19,14 @@ ja:
       product:
         product_name: "商品名"
         stock: "在庫"
-        price: "価格  "
+        price: "価格"
+      song:
+        song_name: "曲名"
+        song_number: "曲番号"
+      disc:
+        disc_name: "ディスク名"
+        disc_number: "ディスク番号"
+      artist:
+        artist_name: "歌手名"
+      lebel:
+        lebel_name: "レーベル名"

@@ -4,8 +4,8 @@ class Product < ApplicationRecord
 	belongs_to :artist
 	belongs_to :genre
 	belongs_to :label
-	has_many :cart_products
-	has_many :order_products
+	has_many :cart_products, dependent: :destroy
+	has_many :order_products,dependent: :destroy
 	has_many :orders,through: :order_products
 	has_many :carts,through: :cart_products
 

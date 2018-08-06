@@ -6,10 +6,13 @@ class Admin::DiscsController < ApplicationController
 	end
 
   	def create
-		disc = Disc.new(disc_params)
-		disc.product_id = params[:product_id]
-		disc.save
-		redirect_to admin_product_path(params[:product_id])
+		@disc = Disc.new(disc_params)
+		@disc.product_id = params[:product_id]
+		if @disc.save
+			redirect_to admin_product_path(params[:product_id])
+		else
+			render :new
+		end
 	end
 
 	def edit
@@ -20,6 +23,12 @@ class Admin::DiscsController < ApplicationController
 		@disc = Disc.find(params[:id])
 		@disc.update(disc_params)
 		redirect_to admin_product_path
+	end
+
+	def destroy
+		disc = Disc.find(params[:disc_id])
+		disc.destroy
+		redirect_to admin_product_path(params[:product_id])
 	end
 
 	private
