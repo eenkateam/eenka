@@ -3,7 +3,7 @@
 	<%= render 'products/side' %>
 	<div class = "products_content clearfix">
 	<div class="products_content_box">
-		<% @products.order("id DESC").each do |product| %>
+		<% @products.each do |product| %>
 		<%= link_to  admin_product_path(product), class: '' do %>
 
 		<div class="card_box clearfix">

@@ -53,6 +53,12 @@
           <% elsif admin_signed_in? %>
             <P>管理者としてログインしています</P>
             <div class = "item">
+              <i><%= link_to '商品一覧',admin_products_path %></i>
+            </div>
+            <div class = "item">
+              <i><%= link_to '商品登録',new_admin_product_path %></i>
+            </div>
+            <div class = "item">
               <i><%= link_to '注文一覧',admin_orders_path %></i>
             </div>
             <div class = "item">
