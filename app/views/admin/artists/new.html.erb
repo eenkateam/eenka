@@ -1,5 +1,9 @@
 <h1>アーティスト新規登録</h1>
-
+<ul class="receiver_error">
+	<% @artist.errors.full_messages.each do |message| %>
+    	<li><%= message %></li>
+    <% end %>
+</ul>
 <%= form_for(@artist, url: admin_artists_path) do |f| %>
 
 	<p><%= f.label :artist_image, "アーティスト画像" %></p>

@@ -53,6 +53,15 @@
           <% elsif admin_signed_in? %>
             <P>管理者としてログインしています</P>
             <div class = "item">
+              <i><%= link_to '注文一覧',admin_orders_path %></i>
+            </div>
+            <div class = "item">
+              <i><%= link_to '歌手一覧',admin_artists_path %></i>
+            </div>
+            <div class = "item">
+              <i><%= link_to 'レーベル一覧',admin_labels_path %></i>
+            </div>
+            <div class = "item">
               <i><%= link_to ' 管理者からログアウトする', destroy_admin_session_path, method: :delete %></i>
             </div>
           <% else %>

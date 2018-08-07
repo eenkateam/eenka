@@ -28,5 +28,7 @@ ja:
         disc_number: "ディスク番号"
       artist:
         artist_name: "歌手名"
+        opinion: "紹介文"
       lebel:
         lebel_name: "レーベル名"
+        opinion: "紹介文"
