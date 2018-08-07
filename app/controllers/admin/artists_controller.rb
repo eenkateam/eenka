@@ -6,9 +6,12 @@ class Admin::ArtistsController < ApplicationController
 	end
 
 	def create
-		artist = Artist.new(artist_params)
-		artist.save
-		redirect_to admin_artists_path
+		@artist = Artist.new(artist_params)
+		if @artist.save
+			redirect_to admin_artists_path
+		else
+			render :new
+		end
 	end
 
 	def edit
