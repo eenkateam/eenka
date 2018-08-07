@@ -27,15 +27,18 @@
 	<p><%= f.label :stock, "在庫" %></p>
 	<p><%= f.text_field :stock %></p>
 
-	<div id="ingredients" class="form-group">
 
+	<!-- ここがフォーム全体 -->
+	<div id="ingredients" class="form-group disc_field">
+
+<!-- ここのdiscの配列に入る要素の個数がディスクの追加を押すほど増えていく -->
+		
 		<%= f.fields_for :discs do |disc| %>
+					<%= render 'disc_fields', f: disc %>
 
-			<%= render 'disc_fields', f: disc %>
-
-		<div id="links">
-			<%= link_to_add_association "ディスク追加", f, :discs %>
-		</div>
+				<div id="links">
+					<%= link_to_add_association "ディスク追加", f, :discs %>
+				</div>
 		<% end %>
 	</div>
 
