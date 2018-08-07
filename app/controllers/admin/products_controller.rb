@@ -2,7 +2,7 @@ class Admin::ProductsController < ApplicationController
   before_action :authenticate_admin!
 	def new
 		@product = Product.new
-		@product.discs.build.songs.build
+		@product.discs.build
 	end
 
 	def edit

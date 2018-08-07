@@ -32,17 +32,9 @@ header {
 }
 
 header {
-  position:absolute !important;
-  top:0 !important;
-  left: 0;
-  right:0;
 }
 
 .all_body {
-   position:absolute !important;
-  top:60px !important;
-  left: 0;
-  right:0;
 }
 .large-menue {
   background-color: #cee4ae !important;
@@ -96,4 +88,10 @@ input#admin_email, input#admin_password{
 
 .ui.card>.image>img, .ui.cards>.card>.image>img{
   margin: 0 auto;
+}
+
+footer {
+    background-color: #cee4ae;
+    line-height: 60px;
+    text-align: center;
 }
