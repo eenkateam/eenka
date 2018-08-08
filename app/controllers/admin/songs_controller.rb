@@ -12,7 +12,7 @@ class Admin::SongsController < ApplicationController
 	def update
 		@song = Song.find(params[:id])
 		if @song.update(song_params)
-			redirect_to edit_admin_product_path(song.disc.product)
+			redirect_to edit_admin_product_path(@song.disc.product)
 		else
 			render :edit
 		end

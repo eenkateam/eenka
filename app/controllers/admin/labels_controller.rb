@@ -29,7 +29,7 @@ class Admin::LabelsController < ApplicationController
 	def update
 		@label = Label.find(params[:id])
 		if @label.update(label_params)
-			redirect_to admin_label_path(label)
+			redirect_to admin_label_path(@label)
 		else
 			render :edit
 		end

@@ -1,5 +1,9 @@
 <h1><%=@product.product_name%>編集ページ|<%= link_to '削除',  destroy_product_product_path, method: :delete %></h1>
-
+<ul class="receiver_error">
+<% @product.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+<% end %>
+</ul>
 <%= form_for(@product,url: admin_product_path(@product)) do |f| %>
 	<h4>画像</h4>
 	<%= f.attachment_field :image %>
