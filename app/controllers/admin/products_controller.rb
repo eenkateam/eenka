@@ -14,7 +14,7 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def index
-		@products = Product.without_soft_destroyed.all
+		@products = Product.without_soft_destroyed.page(params[:page])
 	end
 
 	def update
