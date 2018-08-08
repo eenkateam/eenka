@@ -10,9 +10,12 @@ class Admin::SongsController < ApplicationController
 	end
 
 	def update
-		song = Song.find(params[:id])
-		song.update(song_params)
-		redirect_to edit_admin_product_path(song.disc.product)
+		@song = Song.find(params[:id])
+		if @song.update(song_params)
+			redirect_to edit_admin_product_path(song.disc.product)
+		else
+			render :edit
+		end
 	end
 
 	def create

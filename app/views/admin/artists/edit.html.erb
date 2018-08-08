@@ -1,3 +1,8 @@
+<ul class="receiver_error">
+<% @artist.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+<% end %>
+</ul>
 <%= form_for(@artist, url: admin_artist_path) do |f| %>
 
 	<p><%= f.label :artist_image, "アーティスト画像" %></p>

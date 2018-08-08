@@ -21,8 +21,11 @@ class Admin::DiscsController < ApplicationController
 
 	def update
 		@disc = Disc.find(params[:id])
-		@disc.update(disc_params)
-		redirect_to admin_product_path(@disc.product)
+		if @disc.update(disc_params)
+			redirect_to admin_product_path(@disc.product)
+		else
+			render :edit
+		end
 	end
 
 	def destroy
