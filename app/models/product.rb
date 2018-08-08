@@ -10,8 +10,8 @@ class Product < ApplicationRecord
 	has_many :carts,through: :cart_products
 
 	validates :product_name, presence: true
-	validates :stock, presence: true
-	validates :price, presence: true
+	validates :stock,numericality: { only_integer: true,message: "を数字のみで入力してください" }
+	validates :price,numericality: { only_integer: true,message: "を数字のみで入力してください" }
 
 	accepts_nested_attributes_for :discs, allow_destroy: true
 

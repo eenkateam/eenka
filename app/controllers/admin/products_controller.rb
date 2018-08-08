@@ -14,13 +14,16 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def index
-		@products = Product.without_soft_destroyed.all
+		@products = Product.without_soft_destroyed.page(params[:page])
 	end
 
 	def update
-		product = Product.find(params[:id])
-		product.update(product_params)
-		redirect_to admin_products_path
+		@product = Product.find(params[:id])
+		if @product.update(product_params)
+			redirect_to admin_products_path
+		else
+			render :edit
+		end
 	end
 
 	def create

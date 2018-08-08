@@ -1,9 +1,13 @@
 <h1>ここはディスク編集ページです</h1>
-
+<ul class="receiver_error">
+<% @disc.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+<% end %>
+</ul>
 <%= form_for(@disc,url: admin_product_disc_path(disc_id:@disc.id,product_id: @disc.product_id)) do |f| %>
 	<h4>商品名</h4>
 	<%= f.text_field :disc_name %>
 	<h4>ディスクの番号</h4>
-	<%= f.text_area :disc_number %>
+	<%= f.number_field :disc_number %>
 	<%= f.submit '商品を編集する' %>
 <% end %>

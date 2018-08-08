@@ -19,9 +19,12 @@ class Admin::ArtistsController < ApplicationController
 	end
 
 	def update
-		artist = Artist.find(params[:id])
-		artist.update(artist_params)
-		redirect_to admin_artist_path(artist.id)
+		@artist = Artist.find(params[:id])
+		if @artist.update(artist_params)
+			redirect_to admin_artist_path(@artist.id)
+		else
+			render :edit
+		end
 	end
 
 	def index
