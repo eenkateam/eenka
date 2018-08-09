@@ -17,7 +17,11 @@
 		        <a>価格：<%= product.price %>円</a>
 		      </div>
 		      <div class="description">
-		        <p>歌手名：<%= product.artist.artist_name %></p>
+		        <p>歌手名：
+		        	<%= link_to artist_path(product.artist.id) do %>
+		        		<%= product.artist.artist_name %>
+		        	<% end %>
+		        </p>
 		  		<p>ジャンル：<%= product.genre.genre_name %></p>
 		  		<p>レーベル：<%= product.label.label_name %></p>
 		      </div>
