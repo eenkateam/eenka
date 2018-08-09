@@ -76,4 +76,4 @@ gem 'ransack'
 gem 'therubyracer', platforms: :ruby
 gem 'kaminari'
 gem 'cocoon'
-
+gem 'bootstrap-sass'

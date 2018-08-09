@@ -1,11 +1,10 @@
 <div class="products_body">
 	<%= render 'products/side' %>
 	<div class = "products_content clearfix">
-
       	<div class="ui items">
 		  	<div class="item">
-		    	<div class="image">
-		      		<%= attachment_image_tag @aritst, :artist_image, :fill, 100, 100, format: 'jpeg' %>
+		    	<div class="artist_image">
+		      		<%= attachment_image_tag @artist, :artist_image, :fill, 100, 100, format: 'jpeg' %>
 		    	</div>
 		    	<div class="content">
 		      		<h1><%= @artist.artist_name %></h1>
@@ -21,7 +20,7 @@
 
 
 		<div class="products_content_box">
-			<% @artistProducts.each do |product| %>
+			<% @artist.products.each do |product| %>
 			<%= link_to product_path(product), class: '' do %>
 
 			<div class="card_box clearfix">
