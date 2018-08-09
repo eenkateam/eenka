@@ -8,50 +8,54 @@
     <!-- ここでエラーメッセージを出している -->
             <%= devise_error_messages! %>
             <%= alert %>
-          <div class="ui divider"></div>
-            <div class="field">
-              <%= f.label "名前" %><br />
-              <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+          <div class="ui form"></div>
+            <div class="field fieldPadding">
+              <%= f.label "名前" %>
+              <div class="two fields">
+                <div class="field">
+                  <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "姓" %>
+                </div>
+                <div class="field">
+                  <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "名" %>
+                </div>
+              </div>
             </div>
 
-            <div class="field">
-              <%= f.label "苗字" %><br />
-              <%= f.text_field :last_name, autocomplete: "last_name" %>
+            <div class="field fieldPadding">
+              <%= f.label "フリガナ" %>
+              <div class="two fields">
+                <div class="field">
+                  <%= f.text_field :first_kana, autofocus: true, autocomplete: "first_kana", placeholder: "セイ" %>
+                </div>
+                <div class="field">
+                  <%= f.text_field :last_kana, autofocus: true, autocomplete: "last_kana", placeholder: "メイ" %>
+                </div>
+              </div>
             </div>
 
-            <div class="field">
-              <%= f.label "ナマエ（ふりがな）" %><br />
-              <%= f.text_field :first_kana, autocomplete: "first_kana" %>
-            </div>
-
-            <div class="field">
-              <%= f.label "ミョウジ（ふりがな）" %><br />
-              <%= f.text_field :last_kana, autocomplete: "last_kana" %>
-            </div>
-
-            <div class="field">
+            <div class="field fieldPadding">
               <%= f.label "郵便番号" %><br />
               <%= f.text_field :postal_code, autocomplete: "postal_code" %>
               <em>(ハイフンは無しで、7桁の数字を入力してください。)</em>
             </div>
 
-            <div class="field">
+            <div class="field fieldPadding">
               <%= f.label "住所" %><br />
               <%= f.text_field :adress, autocomplete: "adress" %>
             </div>
 
-            <div class="field">
+            <div class="field fieldPadding">
               <%= f.label "電話番号" %><br />
               <%= f.text_field :phone_number, autocomplete: "phone_number" %>
               <em>(ハイフンは無しで、10桁もしくは11桁の数字を入力してください。)</em>
             </div>
 
-            <div class="field">
+            <div class="field fieldPadding">
               <%= f.label "メールアドレス" %><br />
               <%= f.email_field :email, autocomplete: "email" %>
             </div>
 
-            <div class="field">
+            <div class="field fieldPadding">
               <%= f.label "このサイトで使用したいパスワード" %><br>
               <% if @minimum_password_length %>
               <% end %>
@@ -59,7 +63,7 @@
               <em>(<%= @minimum_password_length %> 文字以上で登録してください)</em>
             </div>
 
-            <div class="field">
+            <div class="field fieldPadding">
               <%= f.label "登録するパスワードの再確認" %><br />
               <%= f.password_field :password_confirmation, autocomplete: "off" %>
             </div>
