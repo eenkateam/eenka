@@ -1,5 +1,5 @@
 <h1><%= @product.product_name %> の詳細です|<%= link_to "編集", edit_admin_product_path(@product) %></h1>
-<div class="ui link cards" >
+<div class="ui cards" >
 	<div class="card">
 		<div class="image">
 			<%= attachment_image_tag @product, :image, :fill, 100, 100, fallback: "noimage.png"%>

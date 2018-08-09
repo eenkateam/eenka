@@ -11,12 +11,13 @@
 		  <div class="field">
 		    <%= f.label :email %><br />
 		    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+		    <%= f.hidden_field :first_kana, autofocus: true%>
+		    <%= f.hidden_field :last_name, autofocus: true %>
 		  </div>
 		  <div class="actions">
 		    <%= f.submit "送信", :class => "fluid positive ui button" %><br>
 		  </div>
 		<% end %>
-
 		<%= render "users/shared/links" %>
 	  </section>
 	</div>
