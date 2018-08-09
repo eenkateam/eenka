@@ -13,6 +13,15 @@
  *= require_tree .
  *= require_self
  */
+@font-face {
+  font-family: 'hoge';
+  src: font-url('a.ttf') format('truetype');
+}
+
+body {
+  font-family: 'hoge'!important;
+  font-weight:900;
+}
 
 * {
   margin: 0;
