@@ -25,23 +25,24 @@
 	</table>
 
 	<h3 class="price">合計金額は<%= @price %>円です</h3>
-
-	<div class="card_box">
-		<div class="ui link cards" >
-		  <div class="card">
-			<h3>購入者</h3>
-			<p>名前: <%= @order.user.first_name + @order.user.last_name%></p>
-			<p>住所: <%= @order.user.adress %></p>
-		  </div>
+	<div class="receiver_cards clearfix">
+		<div class="card_box">
+			<div class="ui link cards" >
+			  <div class="card">
+				<h3>購入者</h3>
+				<p>名前: <%= @order.user.first_name + @order.user.last_name%></p>
+				<p>住所: <%= @order.user.adress %></p>
+			  </div>
+			</div>
 		</div>
-	</div>
 
-	<div class="card_box">
-		<div class="ui link cards" >
-		  <div class="card">
-				<h3>お届け先</h3>
-				<p>名前: <%= @order.receiver.receiver_name%></p>
-				<p>住所: <%= @order.receiver.receiver_adress%></p>
+		<div class="card_box">
+			<div class="ui link cards" >
+			  <div class="card">
+					<h3>お届け先</h3>
+					<p>名前: <%= @order.receiver.receiver_name%></p>
+					<p>住所: <%= @order.receiver.receiver_adress%></p>
+				</div>
 			</div>
 		</div>
 	</div>
