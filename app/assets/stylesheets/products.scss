@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.product_body {
+	background-image: url(slide2.jpg);
+	background-size: cover;
+  	background-position: center;
+  	width: 100%;
+}
+
 .product {
   width:310px;
   float:left;
@@ -50,14 +57,8 @@ table .product_show{
 	width:100px;
 }
 /*レイアウト*/
-.products_body{
-  width: 90%;
-  margin: 0 auto;
-}
 
-.products_content{
-	
-}
+
 
 .products_content_box{
   width: 90%;
