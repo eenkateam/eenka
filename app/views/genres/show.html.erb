@@ -1,11 +1,14 @@
 <h1>ここはジャンルの詳細ページです</h1>
 <h2><%= @genre.genre_name %></h2>
+<br>
+<p><storong>紹介文</storong></p>
+<%= @genre.opinion%>
 
 <div class = "content clearfix">
 	<% @genre.products.each do |product| %>
 		<div class = "product">
 			<p>
-				<%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "th.jpg"%>
+				<%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "noimage.jpg"%>
 			</p>
 	  		<p>商品名：　<%= product.product_name %></p>
 	  		<p>価格：　<%= product.price %></p>
