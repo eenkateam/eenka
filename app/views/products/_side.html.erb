@@ -1,4 +1,4 @@
-<div class="ui six item menu">
+<div class="ui six item menu genre_bar">
   <% Genre.all.each do |genre| %>
     <p class = "genre_name item"><%= link_to genre.genre_name, genre_path(genre) %></p>
   <% end %>
