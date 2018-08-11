@@ -1,38 +1,54 @@
-<h1>購入履歴のページです</h1>
+<div class = user_content>
+  <h3>ユーザー情報</h3>
+  <div class="user_info">
+  <table class="ui celled table">
+    <thead>
+      <th>名前</th><th><%= current_user.first_name + current_user.last_name %></th>
+    </thead>
+    <tbody>
+      <tr><td>郵便番号</td><td><%= current_user.postal_code %></td></tr>
+      <tr><td>住所</td><td><%= current_user.adress %></td></tr>
+      <tr><td>電話番号</td><td><%= current_user.phone_number %></td></tr>
+      <tr><td>メールアドレス</td><td><%= current_user.email %></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>購入履歴一覧</h3>
 
-<table class="ui unstackable table">
-	<% count = 0 %>
-	<% @orders.order("id DESC").each do |order| %>
-  <thead>
-    <tr>
-      <th>購入日 （<%= order.created_at.strftime('%Y/%m/%d') %>）</th>
-      <th>商品名</th>
-      <th class="right aligned">値段</th>
-      <th class="right aligned">枚数</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% order.order_products.each do |order_product| %>
-    <tr>
-      <td></td>
-      <td><%= order_product.product.product_name %></td>
-      <td class="right aligned"><%= order_product.price %>円</td>
-      <td class="right aligned"><%= order_product.count %>枚</td>
-    </tr>
-    <% end %>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td class="right aligned">
-      	合計金額は<%= @price[count] %>円です<br>
-      	<%= link_to "配送状況確認・購入履歴詳細へ", order_path(order) %><br>
-      </td>
-    </tr>
-    <% count += 1 %>
-    <% end %>
-  </tbody>
-</table>
+  <% @orders.order("id DESC").each do |order| %>
+    <table class="ui stripped table">
+    	<% count = 0 %>
+      <thead>
+        <tr>
+          <th>購入日 （<%= order.created_at.strftime('%Y/%m/%d') %>）</th>
+          <th>商品名</th>
+          <th class="right aligned">値段</th>
+          <th class="right aligned">枚数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% order.order_products.each do |order_product| %>
+        <tr>
+          <td></td>
+          <td><%= order_product.product.product_name %></td>
+          <td class="right aligned"><%= order_product.price %>円</td>
+          <td class="right aligned"><%= order_product.count %>枚</td>
+        </tr>
+        <% end %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="right aligned">
+          	合計金額は<strong><%= @price[count] %></strong>円です<br>
+          	<%= link_to "配送状況確認・購入履歴詳細へ", order_path(order) %><br>
+          </td>
+        </tr>
+        <% count += 1 %>
+      </tbody>
+    </table>
+  <% end %>
 
-<%= link_to "ユーザー基本情報編集だよ", edit_user_path %><br>
-<%= link_to "メールアドレス・パスワード変更", edit_user_registration_path %>
+  <%= link_to "ユーザー基本情報編集だよ", edit_user_path %><br>
+  <%= link_to "メールアドレス・パスワード変更", edit_user_registration_path %>
+</div>
