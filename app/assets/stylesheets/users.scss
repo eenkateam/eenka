@@ -75,6 +75,10 @@
   background-position: center;
 }
 
+.password_content {
+  width:500px;
+}
+
 
 /*ユーザー詳細画面*/
  .user_content {
@@ -85,3 +89,16 @@
  .user_info {
   width:500px;
  }
+
+ /*ユーザー編集画面*/
+
+.user_edit_content {
+  width:85%;
+  margin:0 auto;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+.user_edit_content button {
+  margin-top:10px;
+}

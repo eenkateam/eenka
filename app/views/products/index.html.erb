@@ -6,13 +6,15 @@
 			<div class="products_content_box clearfix">
 				<% @products.each do |product| %>
 					<div class="card_box">
-						<div class="ui link cards" >
+						<div class="ui cards" >
 						  <div class="card">
 						    <div class="image">
-						      <%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "noimage.png"%>
+						    	<%= link_to product_path(product) do %>
+						      	<%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "noimage.png"%>
+						      	<% end %>
 						    </div>
 						    <div class="content">
-						      <div class="header">商品名：<%= product.product_name %></div>
+						      <div class="header">商品名：<%= link_to product.product_name,product_path(product) %></div>
 						      <div class="meta">
 						        <a>価格：<%= product.price %>円</a>
 						      </div>
