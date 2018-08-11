@@ -41,6 +41,32 @@ header {
 	/*height: px;*/
 }
 
+header .log_out {
+  height:60px !important;
+  padding:0px 15px !important;
+}
+header a {
+  display:inline-block;
+  height:60px;
+}
+
+header .item {
+  padding:0px 15px !important;
+}
+
+header a{
+  line-height:60px !important;
+}
+
+header ul {
+  height:60px !important;
+}
+
+header .large-menue {
+  height:60px !important;
+}
+
+
 header {
 }
 
@@ -81,13 +107,33 @@ input#admin_email, input#admin_password{
 }
 
 .ui.menu{
-  margin: 0 0 0 0 !important;
+  margin: 0 0 0 0 ;
 }
 
 .genre_name {
   margin:0 auto;
-  font-size: 20px;
-  text-align: center;
+}
+
+.genre_bar {
+  width:80% !important;
+  margin:0 auto !important;
+}
+
+.genre_bar a {
+  height:40px;
+  display:inline-block;
+  vertical-align:middle;
+  width:100%;
+  line-height:40px !important;
+}
+
+.genre_bar a:hover {
+  background-color:lightgray;
+}
+
+.genre_bar p {
+  height:40px;
+  padding:0px !important;
 }
 
 .ui.vertical.menu{
