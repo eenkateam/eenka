@@ -5,8 +5,12 @@
 .product_box {
 	background-image: url(product_index_background_image.jpg);
 	background-size: cover;
-  	background-position: center;
-  	width: 100%;
+ 	background-position: center;
+  width: 100%;
+}
+
+.card:hover {
+	background-color:white !important;
 }
 
 .product {

@@ -1,4 +1,10 @@
-<h2>ユーザー基本情報編集画面</h2>
+<div class="user_edit_content">
+  <h2>ユーザー基本情報編集画面</h2>
+  <ul class="receiver_error">
+  <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
   <%= form_for(@user) do |f| %>
   <table>
 <!--  -->
@@ -56,13 +62,9 @@
   	<td></td>
   	<td></td>
   </tr>
-<!--  -->
-  <tr>
-	<td align="left"><%= f.submit 'ユーザー情報更新' %></td>
-	<td></td>
-	<td></td>
-  </tr>
   </table>
+    <button><%= f.submit 'ユーザー情報更新' %></button>
   <% end %>
 
-  <%= link_to '退会する', destroy_user_session_path(flag: 1),method: :delete %>
+  <button><%= link_to '退会する', destroy_user_session_path(flag: 1),method: :delete %></button>
+</div>
