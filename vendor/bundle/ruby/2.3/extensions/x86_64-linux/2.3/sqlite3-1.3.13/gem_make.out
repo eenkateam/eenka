@@ -1,0 +1,42 @@
+current directory: /var/www/html/eenka/vendor/bundle/ruby/2.3/gems/sqlite3-1.3.13/ext/sqlite3
+/usr/bin/ruby2.3 -r ./siteconf20180811-16770-p76bgn.rb extconf.rb
+checking for sqlite3.h... yes
+checking for pthread_create() in -lpthread... yes
+checking for sqlite3_libversion_number() in -lsqlite3... yes
+checking for rb_proc_arity()... yes
+checking for rb_integer_pack()... yes
+checking for sqlite3_initialize()... yes
+checking for sqlite3_backup_init()... yes
+checking for sqlite3_column_database_name()... yes
+checking for sqlite3_enable_load_extension()... yes
+checking for sqlite3_load_extension()... yes
+checking for sqlite3_open_v2()... yes
+checking for sqlite3_prepare_v2()... yes
+checking for sqlite3_int64 in sqlite3.h... yes
+checking for sqlite3_uint64 in sqlite3.h... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /var/www/html/eenka/vendor/bundle/ruby/2.3/extensions/x86_64-linux/2.3/sqlite3-1.3.13/mkmf.log
+
+current directory: /var/www/html/eenka/vendor/bundle/ruby/2.3/gems/sqlite3-1.3.13/ext/sqlite3
+make "DESTDIR=" clean
+rm -f 
+rm -f sqlite3_native.so  *.o  *.bak mkmf.log .*.time
+
+current directory: /var/www/html/eenka/vendor/bundle/ruby/2.3/gems/sqlite3-1.3.13/ext/sqlite3
+make "DESTDIR="
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DHAVE_RB_PROC_ARITY -DHAVE_RB_INTEGER_PACK -DHAVE_SQLITE3_INITIALIZE -DHAVE_SQLITE3_BACKUP_INIT -DHAVE_SQLITE3_COLUMN_DATABASE_NAME -DHAVE_SQLITE3_ENABLE_LOAD_EXTENSION -DHAVE_SQLITE3_LOAD_EXTENSION -DHAVE_SQLITE3_OPEN_V2 -DHAVE_SQLITE3_PREPARE_V2 -DHAVE_TYPE_SQLITE3_INT64 -DHAVE_TYPE_SQLITE3_UINT64    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o backup.o -c backup.c
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DHAVE_RB_PROC_ARITY -DHAVE_RB_INTEGER_PACK -DHAVE_SQLITE3_INITIALIZE -DHAVE_SQLITE3_BACKUP_INIT -DHAVE_SQLITE3_COLUMN_DATABASE_NAME -DHAVE_SQLITE3_ENABLE_LOAD_EXTENSION -DHAVE_SQLITE3_LOAD_EXTENSION -DHAVE_SQLITE3_OPEN_V2 -DHAVE_SQLITE3_PREPARE_V2 -DHAVE_TYPE_SQLITE3_INT64 -DHAVE_TYPE_SQLITE3_UINT64    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o database.o -c database.c
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DHAVE_RB_PROC_ARITY -DHAVE_RB_INTEGER_PACK -DHAVE_SQLITE3_INITIALIZE -DHAVE_SQLITE3_BACKUP_INIT -DHAVE_SQLITE3_COLUMN_DATABASE_NAME -DHAVE_SQLITE3_ENABLE_LOAD_EXTENSION -DHAVE_SQLITE3_LOAD_EXTENSION -DHAVE_SQLITE3_OPEN_V2 -DHAVE_SQLITE3_PREPARE_V2 -DHAVE_TYPE_SQLITE3_INT64 -DHAVE_TYPE_SQLITE3_UINT64    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o exception.o -c exception.c
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DHAVE_RB_PROC_ARITY -DHAVE_RB_INTEGER_PACK -DHAVE_SQLITE3_INITIALIZE -DHAVE_SQLITE3_BACKUP_INIT -DHAVE_SQLITE3_COLUMN_DATABASE_NAME -DHAVE_SQLITE3_ENABLE_LOAD_EXTENSION -DHAVE_SQLITE3_LOAD_EXTENSION -DHAVE_SQLITE3_OPEN_V2 -DHAVE_SQLITE3_PREPARE_V2 -DHAVE_TYPE_SQLITE3_INT64 -DHAVE_TYPE_SQLITE3_UINT64    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o sqlite3.o -c sqlite3.c
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I.  -DHAVE_RB_PROC_ARITY -DHAVE_RB_INTEGER_PACK -DHAVE_SQLITE3_INITIALIZE -DHAVE_SQLITE3_BACKUP_INIT -DHAVE_SQLITE3_COLUMN_DATABASE_NAME -DHAVE_SQLITE3_ENABLE_LOAD_EXTENSION -DHAVE_SQLITE3_LOAD_EXTENSION -DHAVE_SQLITE3_OPEN_V2 -DHAVE_SQLITE3_PREPARE_V2 -DHAVE_TYPE_SQLITE3_INT64 -DHAVE_TYPE_SQLITE3_UINT64    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC  -m64 -o statement.o -c statement.c
+rm -f sqlite3_native.so
+gcc -shared -o sqlite3_native.so backup.o database.o exception.o sqlite3.o statement.o -L. -L/usr/lib64 -L. -fstack-protector -rdynamic -Wl,-export-dynamic   -m64  -L/usr/lib64/ruby/2.3 -lruby -lsqlite3 -lpthread  -lsqlite3 -lpthread -ldl -lcrypt -lm   -lc
+
+current directory: /var/www/html/eenka/vendor/bundle/ruby/2.3/gems/sqlite3-1.3.13/ext/sqlite3
+make "DESTDIR=" install
+/bin/mkdir -p . ./.gem.20180811-16770-cku7yy/sqlite3
+exit > .RUBYARCHDIR.-.sqlite3.time
+/usr/bin/install -c -m 0755 sqlite3_native.so ./.gem.20180811-16770-cku7yy/sqlite3

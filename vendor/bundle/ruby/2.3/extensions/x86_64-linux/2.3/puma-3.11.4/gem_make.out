@@ -1,0 +1,30 @@
+current directory: /var/www/html/eenka/vendor/bundle/ruby/2.3/gems/puma-3.11.4/ext/puma_http11
+/usr/bin/ruby2.3 -r ./siteconf20180811-16770-dwvcdg.rb extconf.rb
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /var/www/html/eenka/vendor/bundle/ruby/2.3/extensions/x86_64-linux/2.3/puma-3.11.4/mkmf.log
+
+current directory: /var/www/html/eenka/vendor/bundle/ruby/2.3/gems/puma-3.11.4/ext/puma_http11
+make "DESTDIR=" clean
+rm -f 
+rm -f puma_http11.so  *.o  *.bak mkmf.log .*.time
+
+current directory: /var/www/html/eenka/vendor/bundle/ruby/2.3/gems/puma-3.11.4/ext/puma_http11
+make "DESTDIR="
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I. -DHAVE_OPENSSL_BIO_H    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o http11_parser.o -c http11_parser.c
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I. -DHAVE_OPENSSL_BIO_H    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o io_buffer.o -c io_buffer.c
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I. -DHAVE_OPENSSL_BIO_H    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o mini_ssl.o -c mini_ssl.c
+gcc -I. -I/usr/include/ruby/2.3 -I/usr/include/ruby/2.3/ruby/backward -I/usr/include/ruby/2.3 -I. -DHAVE_OPENSSL_BIO_H    -fPIC -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -mtune=generic -fPIC -m64 -o puma_http11.o -c puma_http11.c
+rm -f puma_http11.so
+gcc -shared -o puma_http11.so http11_parser.o io_buffer.o mini_ssl.o puma_http11.o -L. -L/usr/lib64 -L. -fstack-protector -rdynamic -Wl,-export-dynamic  -m64  -L/usr/lib64/ruby/2.3 -lruby -lssl -lcrypto  -lpthread -ldl -lcrypt -lm   -lc
+
+current directory: /var/www/html/eenka/vendor/bundle/ruby/2.3/gems/puma-3.11.4/ext/puma_http11
+make "DESTDIR=" install
+/bin/mkdir -p . ./.gem.20180811-16770-1116xq5/puma
+exit > .RUBYARCHDIR.-.puma.time
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20180811-16770-1116xq5/puma
