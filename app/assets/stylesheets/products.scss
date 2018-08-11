@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.product_body {
-	background-image: url(slide2.jpg);
+.product_box {
+	background-image: url(product_index_background_image.jpg);
 	background-size: cover;
   	background-position: center;
   	width: 100%;
@@ -57,17 +57,23 @@ table .product_show{
 	width:100px;
 }
 /*レイアウト*/
+.products_body{
+  width: 90%;
+  margin: 0 auto;
+}
 
-
+.products_content{
+	
+}
 
 .products_content_box{
-	max-width:80%;
+  width: 90%;
   margin: 0 auto;
 }
 
 .card_box{
   float: left;
-  margin: 20px 30px;
+  margin: 0 10px;
 }
 
 .product{
@@ -81,4 +87,8 @@ table .product_show{
 .ui.cards{
   width: fit-content;
   margin: 0 0 0 0 !important;
+}
+
+.ui.cards a.card:hover, .card:hover, a.ui.card:hover {
+	background: rgba(255, 255, 255, 0.7);
 }
