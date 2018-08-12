@@ -1,67 +1,64 @@
-<div class="products_body">
-	<%= render 'products/side' %>
-	<div class = "products_content clearfix">
+<div class="artist_show_body">
+	<div class="products_body">
+		<%= render 'products/side' %>
+		<div class = "products_content clearfix">
 
-      	<div class="ui items">
-		  	<div class="item">
-		    	<div class="image">
-		      		<%= attachment_image_tag @aritst, :artist_image, :fill, 100, 100, format: 'jpeg' %>
+		  	<div class="artist_box clearfix">
+		    	<div class="artist_image">
+		      		<%= attachment_image_tag @artist, :artist_image, :fill, 200, 200, format: 'jpeg' %>
 		    	</div>
 		    	<div class="content">
-		      		<h1><%= @artist.artist_name %></h1>
-		      		<div class="meta">
-		        		<span>紹介文</span>
-		      		</div>
-		      		<div class="description">
+		      		<h1 class="artist_name"><%= @artist.artist_name %></h1>
+		      		<div class="opinion">
 		        		<p><%= @artist.opinion %></p>
 		      		</div>
 		    	</div>
 		  	</div>
-		</div>
 
 
-		<div class="products_content_box">
-			<% @artistProducts.each do |product| %>
-			<%= link_to product_path(product), class: '' do %>
+			<div class="products_content_box">
+				<% @artistProducts.each do |product| %>
+				<%= link_to product_path(product), class: '' do %>
 
-			<div class="card_box clearfix">
-			<div class="ui link cards" >
-			  <div class="card">
-			    <div class="image">
-			      <%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "noimage.png"%>
-			    </div>
-			    <div class="content">
-			      <div class="header">商品名：<%= product.product_name %></div>
-			      <div class="meta">
-			        <a>価格：<%= product.price %>円</a>
-			      </div>
-			      <div class="description">
-			        <p>歌手名：
-			        	<%= link_to artist_path(product.artist.id) do %>
-			        		<%= product.artist.artist_name %>
-			        	<% end %>
-			        </p>
-			  		<p>ジャンル：<%= product.genre.genre_name %></p>
-			  		<p>レーベル：<%= product.label.label_name %></p>
-			      </div>
+				<div class="card_box clearfix">
+				<div class="ui link cards" >
+				  <div class="card">
+				    <div class="image">
+				      <%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "noimage.png"%>
+				    </div>
+				    <div class="content">
+				      <div class="header">商品名：<%= product.product_name %></div>
+				      <div class="meta">
+				        <a>価格：<%= product.price %>円</a>
+				      </div>
+				      <div class="description">
+				        <p>歌手名：
+				        	<%= link_to artist_path(product.artist.id) do %>
+				        		<%= product.artist.artist_name %>
+				        	<% end %>
+				        </p>
+				  		<p>ジャンル：<%= product.genre.genre_name %></p>
+				  		<p>レーベル：<%= product.label.label_name %></p>
+				      </div>
+					</div>
+				    <div class="extra content">
+				      <span class="right floated">
+				        <p></p>
+				      </span>
+				      <span>
+				        <p>在庫数：　<%= product.stock %>
+				    	  <% if product.stock <= 0 %>(売り切れ)<% end %>
+				  		</p>
+				      </span>
+				    </div>
+				  </div>
 				</div>
-			    <div class="extra content">
-			      <span class="right floated">
-			        <p></p>
-			      </span>
-			      <span>
-			        <p>在庫数：　<%= product.stock %>
-			    	  <% if product.stock <= 0 %>(売り切れ)<% end %>
-			  		</p>
-			      </span>
-			    </div>
-			  </div>
-			</div>
-			</div>
+				</div>
 
-			<% end %>
-			<% end %>
+				<% end %>
+				<% end %>
+			</div>
 		</div>
+		<%= paginate @artistProducts, class: "pagenate" %>
 	</div>
-	<%= paginate @artistProducts, class: "pagenate" %>
 </div>

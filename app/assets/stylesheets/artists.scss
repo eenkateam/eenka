@@ -2,8 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.artist_box {
+	width: 650px;
+	margin: 15px auto;
+}
+
 .artist_image {
     border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-    width:  180px;       /* ※縦横を同値に */
-    height: 180px;       /* ※縦横を同値に */
+    width:  200px;       /* ※縦横を同値に */
+    height: 200px;       /* ※縦横を同値に */
+    float: left;
+    margin-right: 30px;
+}
+
+.content {
+	width: 400px;
+	float: left;
+}
+
+.artist_name {
+	font-size: 50px;
+	margin: 0 0;
+}
+
+.opinion {
+	font-size: 24px;
+}
+
+.artist_show_body {
+	background-image: url(product_index_background_image.jpg);
+	background-size: cover;
+ 	background-position: center;
+  width: 100%;
 }
