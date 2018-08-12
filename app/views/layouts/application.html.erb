@@ -3,17 +3,26 @@
 <head>
 <title>Eenka</title>
 <meta charset="utf-8" />
+<!-- stylesheetと結びつけるためのリンク -->
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<!-- jsと結びつけるためのリンク -->
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
 <%= csrf_meta_tags %>
 <%= csp_meta_tag %>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- jquaryのCDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.js"></script>
 <%= favicon_link_tag('favicon.jpg') %>
-<!-- 下の二つはトップページを動かすためのCSS -->
-<link href="../assets/skippr.css" rel="stylesheet"/>
-<link rel="stylesheet" href="../assets/style.css">
+
+<script  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../assets/skippr.min.js"></script>
+<script src="../assets/script.js"></script>
+
+
 </head>
 
   <body>
