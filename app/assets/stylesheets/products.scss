@@ -93,6 +93,6 @@ table .product_show{
   margin: 0 0 0 0 !important;
 }
 
-.ui.cards a.card:hover, .card:hover, a.ui.card:hover {
+.ui.cards a.card:hover, .ui.link.card:hover, .ui.link.cards, .card:hover, a.ui.card:hover {
 	background: rgba(255, 255, 255, 0.7);
 }
