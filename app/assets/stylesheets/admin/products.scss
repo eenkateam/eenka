@@ -3,11 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .admin_products {
 	background-image: image-url("admin_background_image.jpg");
 	background-size: cover;
  	background-position: center;
- 	width: 100%;
 }
 
 .page_title {
@@ -19,4 +24,16 @@
 
 .song_field {
 	margin-left:30px;
+}
+
+.product-wrapper {
+	display: flex;
+}
+
+.left-box {
+	width: 50%;
+}
+
+.right-box {
+	width: 50%;
 }
