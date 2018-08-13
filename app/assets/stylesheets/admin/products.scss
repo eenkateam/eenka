@@ -3,6 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.admin_products {
+	background-image: image-url("admin_background_image.jpg");
+	background-size: cover;
+ 	background-position: center;
+ 	width: 100%;
+}
+
+.page_title {
+	font-size: 36px;
+	color: white;
+	margin: 10px 0;
+	padding-left: 50px;
+}
+
 .song_field {
 	margin-left:30px;
 }

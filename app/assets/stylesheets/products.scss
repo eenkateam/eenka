@@ -11,6 +11,8 @@
 
 .card:hover {
 	background-color:white !important;
+	background: rgb(255, 255, 255) !important;
+	opacity: 0.9 !important;
 }
 
 .product {
@@ -91,8 +93,4 @@ table .product_show{
 .ui.cards{
   width: fit-content;
   margin: 0 0 0 0 !important;
-}
-
-.ui.cards a.card:hover, .ui.link.card:hover, .ui.link.cards, .card:hover, a.ui.card:hover {
-	background: rgba(255, 255, 255, 0.7);
 }
