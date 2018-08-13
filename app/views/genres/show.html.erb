@@ -1,24 +1,51 @@
-<h1>ここはジャンルの詳細ページです</h1>
-<h2><%= @genre.genre_name %></h2>
-<br>
-<p><storong>紹介文</storong></p>
+<div class="product_box">
+	<div class="products_body clearfix">
+		<%= render 'products/side' %>
+		<h2><%= @genre.genre_name %></h2>
+	<p><storong>紹介文</storong></p>
 <%= @genre.opinion%>
-
-<div class = "content clearfix">
-	<% @genre.products.each do |product| %>
-		<div class = "product">
-			<p>
-				<%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "noimage.png"%>
-			</p>
-	  		<p>商品名：　<%= product.product_name %></p>
-	  		<p>価格：　<%= product.price %></p>
-	  		<p>歌手名：　<%= product.artist.artist_name %></p>
-	  		<p>ジャンル：　<%= product.genre.genre_name %></p>
-	  		<p>レーベル：　<%= product.label.label_name %></p>
-	  		<p>在庫数：　<%= product.stock %>
-	  			<% if product.stock <= 0 %>(売り切れ)<% end %>
-	  		</p>
-	  		<p><%= link_to "詳細をみる", product_path(product) %></p>
+		<%= notice %>
+		<div class = "products_content">
+			<div class="products_content_box clearfix">
+				<% @genre.products.each do |product| %>
+					<div class="card_box">
+						<div class="ui cards" >
+						  <div class="card">
+						    <div class="image">
+						    	<%= link_to product_path(product) do %>
+						      	<%= attachment_image_tag product, :image, :fill, 100, 100, fallback: "noimage.png"%>
+						      	<% end %>
+						    </div>
+						    <div class="content">
+						      <div class="header">商品名：<%= link_to product.product_name,product_path(product) %></div>
+						      <div class="meta">
+						        <a>価格：<%= product.price %>円</a>
+						      </div>
+						      <div class="description">
+						        <p>歌手名：
+						        	<%= link_to artist_path(product.artist) do %>
+						        		<%= product.artist.artist_name %>
+						        	<% end %>
+						        </p>
+						  		<p>ジャンル：<%= product.genre.genre_name %></p>
+						  		<p>レーベル：<%= product.label.label_name %></p>
+						      </div>
+							</div>
+						    <div class="extra content">
+						      <span class="right floated">
+						        <p></p>
+						      </span>
+						      <span>
+						        <p>在庫数：　<%= product.stock %>
+						    	  <% if product.stock <= 0 %>(売り切れ)<% end %>
+						  		</p>
+						      </span>
+						    </div>
+						  </div>
+						</div>
+					</div>
+				<% end %>
+			</div>
 		</div>
-	<% end %>
+	</div>
 </div>

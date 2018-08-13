@@ -2,13 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
 .artist_box {
 	width: 650px;
 	margin: 15px auto;
@@ -37,7 +30,7 @@
 }
 
 .artist_show_body {
-	background-image: url(product_index_background_image.jpg);
+	background-image: image-url("product_index_background_image.jpg");
 	background-size: cover;
  	background-position: center;
   width: 100%;
