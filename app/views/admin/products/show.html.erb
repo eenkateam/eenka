@@ -1,28 +1,45 @@
 <div class="admin_products">
-	<h1>
-		<%= @product.product_name %> の詳細です|<%= link_to "編集", edit_admin_product_path(@product) %>
-	</h1>
+	<h1 class="page_title"><%= @product.product_name %></h1>
+	<%= link_to edit_admin_product_path(@product) do %>
+		<button class="ui button button-color">編集</button>
+	<% end %>
 	<div class="product-wrapper">
 		<div class="left-box">
-			<p><%= attachment_image_tag @product, :image, :fill, 100, 100, fallback: "noimage.png" %></p>
-			<div class = "">
-				<table class = "ui celled striped table product_show">
-					<tbody>
-						<tr><td class="column">商品名:</td><td><%= @product.product_name %></td></tr>
-						<tr><td class="column">値段:</td><td><%= @product.price %>円</td></tr>
-						<tr><td class="column">ジャンル:</td><td><%= @product.genre.genre_name %></td></tr>
-						<tr><td class="column">歌手:</td><td><%= @product.artist.artist_name %></td></tr>
-						<tr><td class="column">レーベル:</td><td><%= @product.label.label_name %></td></tr>
-						<tr><td class="column">在庫枚数:</td><td><%= @product.stock %></td></tr>
-					</tbody>
-				</table>
-			</div>
+			<%= attachment_image_tag @product, :image, :fill, 100, 100, fallback: "noimage.png" %>
+			<table class = "ui celled striped table product-table">
+				<tbody>
+					<tr>
+						<td>商品名</td>
+						<td><%= @product.product_name %></td>
+					</tr>
+					<tr>
+						<td>値段</td>
+						<td><%= @product.price %>円</td>
+					</tr>
+					<tr>
+						<td>ジャンル</td>
+						<td><%= @product.genre.genre_name %></td>
+					</tr>
+					<tr>
+						<td>歌手</td>
+						<td><%= @product.artist.artist_name %></td>
+					</tr>
+					<tr>
+						<td>レーベル</td>
+						<td><%= @product.label.label_name %></td>
+					</tr>
+					<tr>
+						<td>在庫枚数</td>
+						<td><%= @product.stock %></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 
-		<div class="right-box">
+		<div class="right-box clearfix">
 			<h3><%= link_to "ディスク追加", new_admin_product_disc_path(@product) %></h3>
 			<% @product.discs.order("disc_number ASC").each do |disc| %>
-				<div class="disc">
+				<div class="disc-box">
 					<h3><%= disc.disc_number %>枚目</h3>
 					<p class="disc_name"><%= disc.disc_name %>　<%= link_to '削除', admin_product_disc_path(disc_id: disc.id,product_id: @product.id), method: :delete %>|<%=link_to '編集',edit_admin_product_disc_path(product_id: @product.id,id: disc.id) %></p>
 					<% disc.songs.order("song_number ASC").each do |song| %>

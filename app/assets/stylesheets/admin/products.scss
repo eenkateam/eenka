@@ -13,6 +13,7 @@
 	background-image: image-url("admin_background_image.jpg");
 	background-size: cover;
  	background-position: center;
+ 	min-height: 100%;
 }
 
 .page_title {
@@ -20,6 +21,10 @@
 	color: white;
 	margin: 10px 0;
 	padding-left: 50px;
+}
+
+.button-color {
+	color: #82ae46 !important;
 }
 
 .song_field {
@@ -32,8 +37,30 @@
 
 .left-box {
 	width: 50%;
+	padding: 0 5%;
+}
+
+.product-table {
+	border-collapse: collapse;
+	border-radius: 10px !important;/*角の丸み*/
+	background-color: #FFF !important;
+	border: solid 3px #cee4ae !important;
+}
+
+td {
+	color: #82ae46;
 }
 
 .right-box {
 	width: 50%;
+}
+
+.disc-box {
+	padding: 0.5em 1em;
+    margin: 2em 5%;
+    font-weight: bold;
+    color: #82ae46;/*文字色*/
+    background: #FFF;
+    border: solid 3px #cee4ae;/*線*/
+    border-radius: 10px;/*角の丸み*/
 }
