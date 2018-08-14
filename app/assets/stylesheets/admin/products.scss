@@ -64,3 +64,20 @@ td {
     border: solid 3px #cee4ae;/*線*/
     border-radius: 10px;/*角の丸み*/
 }
+
+.admin-product-new-form {
+	width: 35%;
+	margin: 0 auto;
+	border-radius: 10px;/*角の丸み*/
+	background-color: #FFF;
+	border: solid 3px #cee4ae;
+	padding: 15px 45px ;
+}
+
+.label {
+	color: #82ae46;/*文字色*/
+}
+
+.error-massage {
+	text-align: center;
+}
