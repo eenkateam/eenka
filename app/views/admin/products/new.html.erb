@@ -1,50 +1,53 @@
-<ul class="receiver_error">
-	<% @product.errors.full_messages.each do |message| %>
-    	<li><%= message %></li>
-    <% end %>
-</ul>
+<div class="admin_products">
+	<h1 class="page_title">商品登録</h1>
+	<ul class="receiver_error">
+		<% @product.errors.full_messages.each do |message| %>
+	    	<li class="error-massage"><%= message %></li>
+	    <% end %>
+	</ul>
 
-<%= form_for(@product, url: admin_products_path) do |f| %>
+	<%= form_for(@product, url: admin_products_path, html: {class:"ui form admin-product-new-form"}) do |f| %>
 
-	<p><%= f.label :image, "ジャケット画像" %></p>
-	<%= f.attachment_field :image %>
+		<p class="label"><%= f.label :image, "ジャケット画像" %></p>
+		<div class="field"><%= f.attachment_field :image %></div>
 
-	<p><%= f.label :product_name, "商品名" %></p>
-	<p><%= f.text_field :product_name %></p>
+		<p class="label"><%= f.label :product_name, "商品名" %></p>
+		<div class="field"><%= f.text_field :product_name %></div>
 
-	<p><%= f.label :artist_name, "アーティスト" %></p>
-	<p><%= f.collection_select :artist_id, Artist.all, :id, :artist_name %></p>
+		<p class="label"><%= f.label :artist_name, "アーティスト" %></p>
+		<div class="field"><%= f.collection_select :artist_id, Artist.all, :id, :artist_name %></div>
 
-	<p><%= f.label :genre_name, "年代" %></p>
-	<p><%= f.collection_select :genre_id, Genre.all, :id, :genre_name %></p>
+		<p class="label"><%= f.label :genre_name, "年代" %></p>
+		<div class="field"><%= f.collection_select :genre_id, Genre.all, :id, :genre_name %></div>
 
-	<p><%= f.label :label_name, "レーベル" %></p>
-	<p><%= f.collection_select :label_id, Label.all, :id, :label_name %></p>
+		<p class="label"><%= f.label :label_name, "レーベル" %></p>
+		<div class="field"><%= f.collection_select :label_id, Label.all, :id, :label_name %></div>
 
-	<p><%= f.label :price, "価格" %></p>
-	<p><%= f.text_field :price %></p>
+		<p class="label"><%= f.label :price, "価格" %></p>
+		<div class="field"><%= f.text_field :price %></div>
 
-	<p><%= f.label :stock, "在庫" %></p>
-	<p><%= f.text_field :stock %></p>
+		<p class="label"><%= f.label :stock, "在庫" %></p>
+		<div class="field"><%= f.text_field :stock %></div>
 
 
-	<!-- ここがフォーム全体 -->
-	<div id="ingredients" class="form-group disc_field">
+		<!-- ここがフォーム全体 -->
+		<div id="ingredients" class="form-group disc_field">
 
-<!-- ここのdiscの配列に入る要素の個数がディスクの追加を押すほど増えていく -->
-		
-		<%= f.fields_for :discs do |disc| %>
-					<%= render 'disc_fields', f: disc %>
+	<!-- ここのdiscの配列に入る要素の個数がディスクの追加を押すほど増えていく -->
+			
+			<%= f.fields_for :discs do |disc| %>
+						<%= render 'disc_fields', f: disc %>
 
-				<div id="links">
-					<%= link_to_add_association "ディスク追加", f, :discs %>
-				</div>
-		<% end %>
-	</div>
+					<div id="links">
+						<%= link_to_add_association "ディスク追加", f, :discs %>
+					</div>
+			<% end %>
+		</div>
 
-	<div class="actions">
-    	<%= f.submit %>
- 	</div>
-<% end %>
+		<div class="actions">
+	    	<%= f.submit %>
+	 	</div>
+	<% end %>
 
-<%= link_to "商品一覧に戻る", admin_products_path %>
+	<%= link_to "商品一覧に戻る", admin_products_path %>
+</div>
