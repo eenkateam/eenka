@@ -1,16 +1,19 @@
-<h1>管理者側からのアーティスト一覧です</h1>
+<div class="admin-background clearfix">
+	<div class="artist-container">
+		<h1 class="page-title">管理者側からのアーティスト一覧です</h1>
+		<div class="artist-box-wrapper">
+			<% @artists.each do |artist| %>
+			<div class="artist-box">
+				<%= attachment_image_tag artist, :artist_image, :fill, 100, 100, format: 'jpeg' %>
+				<h2><%=  artist.artist_name %></h2>
+				<p>紹介文</p>
+				<p><%= artist.opinion %></p>
 
-<% @artists.each do |artist| %>
+				<p><%= link_to "詳細", admin_artist_path(artist) %></p>
+			</div>
+			<% end %>
+		</div>
 
-	<%= attachment_image_tag artist, :artist_image, :fill, 100, 100, format: 'jpeg' %>
-
-	<h2><%=  artist.artist_name %></h2>
-
-	<p>紹介文</p>
-	<p><%= artist.opinion %></p>
-
-	<p><%= link_to "詳細", admin_artist_path(artist) %></p>
-
-<% end %>
-<br>
-<h4><%= link_to "アーティスト追加", new_admin_artist_path %></h4>
+		<h4><%= link_to "アーティスト追加", new_admin_artist_path %></h4>
+	<div>
+</div>

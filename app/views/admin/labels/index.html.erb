@@ -1,14 +1,16 @@
-<h1>管理者側からのレーベル一覧です</h1>
-
-<% @labels.each do |label| %>
-
-	<h2><%=  label.label_name %></h2>
-
-	<p>紹介文</p>
-	<p><%= label.opinion %></p>
-
-	<p><%= link_to "詳細", admin_label_path(label) %></p>
-
-<% end %>
-<br>
-<h4><%= link_to "レーベル追加", new_admin_label_path %></h4>
+<div class="admin-background">
+	<div class="label-container">
+		<h1 class="page-title">管理者側からのレーベル一覧です</h1>
+		<div class="label-box-wrapper">
+			<% @labels.each do |label| %>
+			<div class="label-box">
+				<h2><%=  label.label_name %></h2>
+				<p>紹介文</p>
+				<p><%= label.opinion %></p>
+				<p><%= link_to "詳細", admin_label_path(label) %></p>
+			</div>
+			<% end %>
+		</div>
+		<h4><%= link_to "レーベル追加", new_admin_label_path %></h4>
+	</div>
+</div>
