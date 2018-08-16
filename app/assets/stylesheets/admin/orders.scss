@@ -15,6 +15,12 @@
  	height: 685px;
 }
 
+.order-container {
+	width: 80%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
 .page-title {
 	font-size: 36px;
 	color: white;
@@ -27,6 +33,26 @@
 	border-radius: 10px !important;/*角の丸み*/
 	background-color: #FFF !important;
 	border: solid 3px #cee4ae !important;
-	width: 80% !important;
-	margin: 0 auto !important;
+	margin: 0 0 !important;
+}
+
+.delivery-group {
+	border-collapse: collapse;
+	border-radius: 10px !important;/*角の丸み*/
+	background-color: #FFF !important;
+	border: solid 3px #cee4ae !important;
+	margin: 15px 0;
+	padding: 10px 20px;
+	width: 300px;
+}
+
+.total-price-box {
+	border-collapse: collapse;
+	border-radius: 10px !important;/*角の丸み*/
+	background-color: #FFF !important;
+	border: solid 3px #cee4ae !important;
+	margin-top: 15px;
+	padding: 10px 20px;
+	width: 400px;
+	float: right;
 }
