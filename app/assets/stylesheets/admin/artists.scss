@@ -1,3 +1,52 @@
 // Place all the styles related to the admin/artists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.admin-background {
+	background-image: image-url("admin_background_image.jpg");
+	background-size: cover;
+ 	background-position: center;
+ 	height: 685px;
+}
+
+.artist-container {
+	width: 80%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.page-title {
+	font-size: 36px;
+	color: white;
+	margin: 10px 0;
+	padding-left: 50px;
+}
+
+.artist-box-wrapper {
+	display: grid;
+	grid-template-columns:1fr 1fr 1fr;
+    grid-template-rows:1fr;
+}
+
+.artist-box {
+	border-collapse: collapse;
+	border-radius: 10px !important;/*角の丸み*/
+	background-color: #FFF !important;
+	border: solid 3px #cee4ae !important;
+	margin: 10px 20px;
+    text-align: center;
+}
+
+.artist_image {
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    width:  200px;       /* ※縦横を同値に */
+    height: 200px;       /* ※縦横を同値に */
+    float: left;
+    margin: 0 auto;
+}

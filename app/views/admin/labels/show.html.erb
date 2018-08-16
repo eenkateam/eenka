@@ -1,7 +1,12 @@
-<h1><%= @label.label_name %></h1>
-<br>
-<p><storong>紹介文</storong></p>
-<%= @label.opinion%>
+<div class="admin-background">
+	<div class="label-container">
+		<div class="label-box">
+			<h1><%= @label.label_name %></h1>
+			<h4>紹介文</h4>
+			<p><%= @label.opinion%></p>
 
-<%= link_to "編集", edit_admin_label_path(@label) %><br>
-<%= link_to "レーベル一覧へ戻る", admin_labels_path %>
+			<%= link_to "編集", edit_admin_label_path(@label) %><br>
+			<%= link_to "レーベル一覧へ戻る", admin_labels_path %>
+		</div>
+	</div>
+</div>
