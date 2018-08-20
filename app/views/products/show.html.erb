@@ -1,38 +1,59 @@
 <p id="notice"><%= alert %></p>
-<p><%= attachment_image_tag @product, :image, :fill, 100, 100, fallback: "noimage.png" %></p>
-<div class = "">
-	<table class = "ui celled striped table product_show">
-		<tbody>
-			<tr><td class="column">商品名:</td><td><%= @product.product_name %></td></tr>
-			<tr><td class="column">値段:</td><td><%= @product.price %>円</td></tr>
-			<tr><td class="column">ジャンル:</td><td><%= @product.genre.genre_name %></td></tr>
-			<tr><td class="column">歌手:</td><td><%= @product.artist.artist_name %></td></tr>
-			<tr><td class="column">レーベル:</td><td><%= @product.label.label_name %></td></tr>
-			<tr><td class="column">在庫枚数:</td><td><%= @product.stock %></td></tr>
-		</tbody>
-	</table>
+<div class="product_show_body">
+  <div class="product_show_main clearfix">
+  	<div class="product_show_image">
+  		<p><%= attachment_image_tag @product, :image, :fill, 400, 400, fallback: "noimage.png" %></p>
+  	</div>
+  	<div class="product_show_info clearfix">
+  	  <div class="artist">
+  	  	<%= link_to artist_path(@product.artist) do %>
+  	  	  <%= @product.artist.artist_name %>
+  	  	<% end %>
+  	  </div>
+  	  <div class="name"><%= @product.product_name %></div>
+  	  <div class="price"><%= @product.price %>円 (税込)</div>
+  	  <div class="label"><%= @product.label.label_name %></div>
+  	  <div class="genre"><%= @product.genre.genre_name %></div>
+  	  <div class="stock"><% if @product.stock <= 0 %>(売り切れ)<% end %></div>
+  	  <div class="purchase">
+  	  <% if  user_signed_in? && @product.stock > 0 %>
+  	    <% if @product.stock <= 0 %>
+  	    <% else %>
+		  <%= form_for(@cart_product, url: cart_product_path(product_id: @product.id)) do |f| %>
+			<%= f.label '数量　' %><%= f.number_field :count,min:1,max:@product.stock,step:1 %>
+			<%= f.submit 'カートに入れる', :class => "positive ui button"  %>
+		  <% end %>
+		<% end %>
+	  <% end %>
+	  </div>
+  	</div>
+  </div>
+  <div class="show_item clearfix">
+  	<div class="header">
+  	  <h3>収録曲</h3>
+  	</div>
+  	<div class="content">
+	  <% @product.discs.order("disc_number ASC").each do |disc| %>
+		<h4>DISC 『<%= disc.disc_name %>』</h4>
+		<% disc.songs.order("song_number ASC").each do |song| %>
+		  <div class = "song">
+			<p><%= song.song_number%><%= song.song_name %></p>
+		  </div>
+		<% end %>
+	  <% end %>
+  	</div>
+  </div>
+  <div class="show_item clearfix">
+  	<div class="header">
+  	  <h3>ご購入される際の注意事項</h3>
+  	</div>
+  	<div class="content">
+  	  <p>破損品、汚損品、不良品を除きまして、商品の返品はお受け致しかねます。<br>ご注文前に十分ご確認のうえご注文手続きを行って頂きますようお願い致します。<br>ご注文後のキャンセルにつきましては、商品入荷前にサイト上よりお手続き頂くようお願いします。<br>出荷済みの場合はキャンセルのお手続きが行えませんのでご了承くださいませ。</p>
+  	</div>
+  </div>
 </div>
 
-<h3>曲情報</h3>
-<div class="product_content clearfix">
-	<% @product.discs.order("disc_number ASC").each do |disc| %>
-		<div class="disc">
-			<p class="disc_name"><%= disc.disc_name %></p>
-			<% disc.songs.order("song_number ASC").each do |song| %>
-				<div class = "song">
-					<p><%= song.song_number%>　<%= song.song_name %></p>
-				</div>
-			<% end %>
-		</div>
-	<% end %>
-</div>
 
 
-<% if  user_signed_in? && @product.stock > 0 %>
-	<%= form_for(@cart_product, url: cart_product_path(product_id: @product.id)) do |f| %>
-		<h3><%= f.label '購入希望枚数' %></h3>
-		<p><%= f.number_field :count,min:1,max:@product.stock,step:1 %> <br></p>
-		<h3><%= f.submit 'カートに入れる' %></h3>
-	<% end %>
-<% end %>
+
 
