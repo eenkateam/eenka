@@ -88,3 +88,90 @@ table .product_show{
   width: fit-content;
   margin: 0 0 0 0 !important;
 }
+
+/*showページ*/
+.product_show_body{
+  width: 80%;
+  height: fit-content;
+  margin: 0 auto;
+  padding: 0 0 100px 0;
+}
+.product_show_main{
+  width: 100%;
+  height: 400px;
+  padding: 0 0 20px 0;
+}
+.product_show_image{
+  width: 400px;
+  height: 400px;
+  float: left;
+}
+.product_show_image .attachment{
+  width: 400px !important;
+}
+.product_show_info{
+  width: 60%;
+  height: 400px;
+  padding: 0 40px;
+  float: left;
+}
+.product_show_info .artist{
+  width: 100%;
+  height: 30px;
+  margin: 10px 0 10px 0;
+  font-size: 20px;
+}
+.product_show_info .name{
+  width: 100%;
+  height: 50px;
+  font-size: 40px;
+}
+.product_show_info .price{
+  width: 100%;
+  height: 40px;
+  margin: 20px 0 20px 0;
+  color: red;
+  font-size: 30px;
+}
+.product_show_info .label{
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+}
+.product_show_info .genre{
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+}
+.product_show_info .stock{
+  width: 100%;
+  height: 30px;
+  margin: 60px 0 0 0;
+  font-size: 20px;
+  color: red;
+}
+.product_show_info .purchase{
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+}
+#cart_product_count{
+  width: 100px;
+  height: 35px;
+}
+.show_item{
+  width: 100%;
+  height: fit-content;
+  margin: 50px 0 0 0;
+}
+.show_item .header{
+  width: 100%;
+  height: 30px;
+  margin: 0 0 30px 0;
+  border-top: 1px solid #6c848d;
+  border-bottom: 1px solid #6c848d;
+}
+.show_item .content{
+  width: 100%;
+  height: fit-content;
+}
