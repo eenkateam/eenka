@@ -3,17 +3,12 @@
 
 
 # Dependency
-使用言語とバージョン、必要なライブラリとそのバージョンを書く
-Pythonならrequirements.txtを用意するのも良い
-
-# Setup
-セットアップ方法を書く。用意するハードウェアとソフトウェアをセットアップするためのコマンドを記載する
+ruby 2.3.6
+rails 5.2.0
 
 # Usage
-使い方。なるべく具体的に書く。サンプルも書く
-
-# Licence
-This software is released under the MIT License, see LICENSE.
+http://ec2-18-191-16-146.us-east-2.compute.amazonaws.com
+新規会員登録、商品購入ができます。実際にお金はかかりません。デモサイトです。
 
 # Authors
-作者を明示する。特に、他者が作成したコードを利用する場合は、そのコードのライセンスに従った上で、リポジトリのそれぞれのコードのオリジナルの作者が誰か分かるように明示する（私はそれが良いと思い自主的にしています）。
+Nohara Masato, Nishikawa Yuzuru, Ohara Hiroki
