@@ -1,13 +1,13 @@
-<%= form_for(@label, url: admin_label_path) do |f| %>
+<%= form_for(@label, url: admin_label_path, html:{class:"admin-label-edit-form"}) do |f| %>
 
 	<p><%= f.label :label_name, "レーベル" %></p>
 	<%= f.text_field :label_name %>
 
 	<p><%= f.label :opinion, "紹介文" %></p>
-	<%= f.text_area :opinion %>
+	<%= f.text_area :opinion, class:"ui form" %>
 
-	<%= f.submit "変更" %>
+	<%= f.submit "変更", class:"ui positive button" %>
 
 <% end %>
 
-<%= link_to "レーベル詳細に戻る", admin_label_path(@label) %>
+<%= link_to "レーベル詳細に戻る", admin_label_path(@label), class:"ui button" %>

@@ -1,3 +1,12 @@
 // Place all the styles related to the admin/discs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.admin-disc-edit-form {
+	width: 75%;
+	margin: 20px auto;
+	border-radius: 10px;/*角の丸み*/
+	background-color: #FFF;
+	border: solid 3px #cee4ae;
+	padding: 15px 45px ;
+}
