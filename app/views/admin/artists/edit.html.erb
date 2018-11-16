@@ -3,7 +3,7 @@
     <li><%= message %></li>
 <% end %>
 </ul>
-<%= form_for(@artist, url: admin_artist_path, html:{class:"admin-artist-edit-form"}) do |f| %>
+<%= form_for(@artist, url: admin_artist_path) do |f| %>
 
 	<p><%= f.label :artist_image, "アーティスト画像" %></p>
 	<%= f.attachment_field :artist_image %>
@@ -14,8 +14,8 @@
 	<p><%= f.label :opinion, "紹介文" %></p>
 	<%= f.text_area :opinion %>
 
-	<%= f.submit "変更", class:"ui positive button" %>
+	<%= f.submit "変更" %>
 
 <% end %>
 
-<%= link_to "アーティスト詳細に戻る", admin_artist_path(@artist), class:"ui button" %>
+<%= link_to "アーティスト詳細に戻る", admin_artist_path(@artist) %>

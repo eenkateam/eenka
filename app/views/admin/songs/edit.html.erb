@@ -4,10 +4,10 @@
     <li><%= message %></li>
 <% end %>
 </ul>
-<%= form_for(@song,url: admin_product_disc_song_path(@song), html: {class:"admin-song-edit-form"}) do |f| %>
+<%= form_for(@song,url: admin_product_disc_song_path(@song)) do |f| %>
 	<h4>歌の名前</h4>
 	<%= f.text_field :song_name %>
 	<h4>歌の番号</h4>
 	<%= f.number_field :song_number %>
-	<p><%= f.submit '商品を編集する', class:"ui positive button" %></p>
+	<p><%= f.submit '商品を編集する' %></p>
 <% end %>
